@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+    <item android:id="@+id/menuHome"
+        android:title="Home"
+        android:icon="@drawable/home"/>
+    <item android:id="@+id/menuCategory"
+        android:title="Category"
+        android:icon="@drawable/category_icon"/>
+    <item android:id="@+id/placehoder"
+        android:title="" />
+    <item android:id="@+id/menuInvoice"
+        android:title="Invoice"
+        android:icon="@drawable/transaction_bill"/>
+    <item android:id="@+id/menuAccount"
+        android:title="Account"
+        android:icon="@drawable/profile_icon"/>
+</menu>
