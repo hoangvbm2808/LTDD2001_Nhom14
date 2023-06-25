@@ -29,14 +29,16 @@
                 android:layout_width="250dp"
                 android:layout_height="60dp"
                 android:translationX="-40dp"
-                app:srcCompat="@drawable/logo" />
+                app:srcCompat="@drawable/logo"
+                tools:ignore="ContentDescription,VisualLintBounds" />
 
             <LinearLayout
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
                 android:layout_marginRight="20dp"
                 android:gravity="bottom"
-                android:orientation="horizontal">
+                android:orientation="horizontal"
+                tools:ignore="RtlHardcoded">
 
                 <ImageView
                     android:id="@+id/imageView7"
@@ -45,7 +47,8 @@
                     android:layout_weight="1"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    app:srcCompat="@drawable/search" />
+                    app:srcCompat="@drawable/search"
+                    tools:ignore="ContentDescription" />
 
                 <ImageView
                     android:id="@+id/imageView8"
@@ -54,7 +57,8 @@
                     android:layout_weight="1"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    app:srcCompat="@drawable/cart" />
+                    app:srcCompat="@drawable/cart"
+                    tools:ignore="ContentDescription" />
 
                 <ImageView
                     android:id="@+id/imageView9"
@@ -63,11 +67,12 @@
                     android:layout_weight="1"
                     android:paddingStart="10dp"
                     android:paddingEnd="10dp"
-                    app:srcCompat="@drawable/bell" />
+                    app:srcCompat="@drawable/bell"
+                    tools:ignore="ContentDescription" />
             </LinearLayout>
         </LinearLayout>
 
-        <LinearLayout
+        <RelativeLayout
             android:layout_width="match_parent"
             android:layout_height="match_parent"
             android:layout_alignParentStart="true"
@@ -78,35 +83,45 @@
             android:layout_marginEnd="0dp"
             android:orientation="vertical">
 
-            <ScrollView
-                android:id="@+id/scrollView"
+<!--            <ScrollView-->
+<!--                android:id="@+id/scrollView"-->
+<!--                android:layout_width="match_parent"-->
+<!--                android:layout_height="wrap_content"-->
+<!--                tools:ignore="UselessParent">-->
+
+<!--                <LinearLayout-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content"-->
+<!--                    android:orientation="vertical">-->
+
+<!--                    <LinearLayout-->
+<!--                        android:id="@+id/linearLayout2"-->
+<!--                        android:layout_width="match_parent"-->
+<!--                        android:layout_height="wrap_content"-->
+<!--                        android:gravity="center"-->
+<!--                        android:orientation="horizontal">-->
+
+<!--                        <androidx.viewpager2.widget.ViewPager2-->
+<!--                            android:id="@+id/fragmentHome"-->
+<!--                            android:layout_width="match_parent"-->
+<!--                            android:layout_height="wrap_content"-->
+<!--                            tools:ignore="MissingConstraints" />-->
+
+<!--                    </LinearLayout>-->
+
+
+<!--                </LinearLayout>-->
+<!--            </ScrollView>-->
+
+            <FrameLayout
+                android:id="@+id/FragmentContainer"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content">
+                android:layout_height="match_parent"
+                android:layout_below="@id/bottomNavView"
+                tools:ignore="NotSibling,UselessLeaf">
 
-                <LinearLayout
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:orientation="vertical">
-
-                    <LinearLayout
-                        android:id="@+id/linearLayout2"
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content"
-                        android:gravity="center"
-                        android:orientation="horizontal">
-
-                        <androidx.viewpager2.widget.ViewPager2
-                            android:id="@+id/fragmentHome"
-                            android:layout_width="match_parent"
-                            android:layout_height="wrap_content"
-                            tools:ignore="MissingConstraints" />
-
-                    </LinearLayout>
-
-
-                </LinearLayout>
-            </ScrollView>
-        </LinearLayout>
+            </FrameLayout>
+        </RelativeLayout>
 
         <androidx.coordinatorlayout.widget.CoordinatorLayout
             android:layout_width="match_parent"
@@ -119,7 +134,8 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="bottom"
                 app:fabCradleMargin="10dp"
-                app:fabCradleRoundedCornerRadius="20dp">
+                app:fabCradleRoundedCornerRadius="20dp"
+                tools:ignore="VisualLintBottomAppBar">
 
                 <com.google.android.material.bottomnavigation.BottomNavigationView
                     android:id="@+id/bottomNavView"
@@ -129,7 +145,8 @@
                     android:background="@android:color/transparent"
                     app:itemIconTint="@color/colorPrimary"
                     app:itemTextColor="@color/colorPrimary"
-                    app:menu="@menu/bottom_nav_menu" />
+                    app:menu="@menu/bottom_nav_menu"
+                    tools:ignore="VisualLintBottomNav" />
 
             </com.google.android.material.bottomappbar.BottomAppBar>
 
@@ -140,7 +157,8 @@
                 android:layout_height="wrap_content"
                 android:src="@drawable/camera"
                 app:backgroundTint="#ed1c24"
-                app:layout_anchor="@id/bottomAppBar" />
+                app:layout_anchor="@id/bottomAppBar"
+                android:importantForAccessibility="no" />
 
         </androidx.coordinatorlayout.widget.CoordinatorLayout>
 
