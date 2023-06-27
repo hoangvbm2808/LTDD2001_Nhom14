@@ -38,7 +38,8 @@
                 android:layout_marginRight="20dp"
                 android:gravity="bottom"
                 android:orientation="horizontal"
-                tools:ignore="RtlHardcoded">
+                tools:ignore="RtlHardcoded"
+                android:layout_marginEnd="20dp">
 
                 <ImageView
                     android:id="@+id/imageView7"
