@@ -57,6 +57,7 @@ public class MainActivity extends AppCompatActivity {
                 }
                 if (item.getItemId() == R.id.menuAccount ) {
                     startActivity(new Intent(MainActivity.this, AccountActivity.class));
+
                     return true;
                 }
                 return false;
