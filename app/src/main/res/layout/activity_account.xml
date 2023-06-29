@@ -1,0 +1,311 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:orientation="vertical"
+    android:background="#DDDDDD	"
+    >
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        >
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="TÀI KHOẢN"
+            android:textStyle="bold"
+            android:textSize="20sp"
+            android:paddingTop="15dp"
+            android:paddingBottom="15dp"
+            android:textAlignment="center"
+            android:gravity="center"
+            android:textColor="@color/white"
+            android:background="#F44336">
+        </TextView>
+    </LinearLayout>
+
+    <!--NAME ACCOUNT-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_account_circle_24">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Username"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            >
+        </TextView>
+        <ImageView
+            android:layout_weight="0.5"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/circle">
+        </ImageView>
+
+        <ImageView
+            android:layout_weight="0.5"
+            android:layout_width="5dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/vietnam">
+        </ImageView>
+    </LinearLayout>
+
+    <!-- MEMBERSHIP_CARD -->
+    <ImageView
+        android:layout_width="match_parent"
+        android:layout_height="110dp"
+        android:src="@drawable/card"
+        android:background="@color/white">
+    </ImageView>
+
+    <!--THEO DOI DON HANG-->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:padding="10dp"
+        android:orientation="vertical"
+        android:layout_marginTop="10dp">
+        <TextView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="Theo dõi đơn"
+            android:textSize="20sp"
+            android:textStyle="bold">
+        </TextView>
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="horizontal"
+            android:background="#DDDDDD"
+            android:layout_marginTop="5dp"
+            >
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src = "@drawable/cart"
+                    android:layout_gravity="center_horizontal">
+                </ImageView>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đơn chờ thanh tóan"
+                    android:textSize="18sp"
+                    android:textAlignment="center">
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/delivery"
+                    android:layout_gravity="center_horizontal"
+                    >
+                </ImageView>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đơn chờ thanh tóan"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    >
+                </TextView>
+            </LinearLayout>
+            <LinearLayout
+                android:layout_weight="1"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:layout_margin="10dp">
+                <ImageView
+                    android:layout_width="50dp"
+                    android:layout_height="50dp"
+                    android:src="@drawable/delivered"
+                    android:layout_gravity="center_horizontal"
+                    >
+                </ImageView>
+                <TextView
+                    android:layout_weight="1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="Đơn chờ thanh tóan"
+                    android:textSize="18sp"
+                    android:textAlignment="center"
+                    >
+                </TextView>
+            </LinearLayout>
+        </LinearLayout>
+    </LinearLayout>
+    <!--LIGHT - DARK MODE -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/mode">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chế độ tối"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <!--Nut switch-->
+        <Switch
+            android:layout_weight="2"
+            android:gravity="center"
+            android:layout_width="50dp"
+            android:layout_height="50dp">
+
+        </Switch>
+    </LinearLayout>
+    <!-- Evaluate ĐÁNH GIÁ -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/evaluate">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Đánh giá của tôi"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_arrow_forward_ios_24">
+        </ImageView>
+    </LinearLayout>
+    <!-- Gui tin nhan -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/comment">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gửi tin nhắn cho chúng tôi"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_arrow_forward_ios_24">
+        </ImageView>
+    </LinearLayout>
+    <!--goi dien -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/call">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Gọi tổng đài 1900 1880"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_arrow_forward_ios_24">
+        </ImageView>
+    </LinearLayout>
+    <!--Chinh sach va dieu khoan -->
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:layout_marginTop="10dp"
+        android:padding="10dp"
+        android:background="@color/white">
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/policy">
+        </ImageView>
+        <TextView
+            android:layout_weight="2"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Chính sách và điều khoản"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <ImageView
+            android:layout_width="30dp"
+            android:layout_height="match_parent"
+            android:src="@drawable/baseline_arrow_forward_ios_24">
+        </ImageView>
+    </LinearLayout>
+
+
+
+</LinearLayout>
+
+
+
+
