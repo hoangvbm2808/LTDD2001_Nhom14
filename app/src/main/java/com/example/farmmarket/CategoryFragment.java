@@ -77,6 +77,7 @@ public class CategoryFragment extends Fragment {
 
         adapter=new CategoryAdaptor(category);
         recyclerViewCategoryList.setAdapter(adapter);
+
     }
 
 

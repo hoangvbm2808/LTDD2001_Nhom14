@@ -36,6 +36,11 @@ public class MainActivity extends AppCompatActivity {
         menuItem.setEnabled(false);
 
 
+        //Create category in database
+        FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
+        db.addCategory();
+
+
         //Switch fragment
 
         getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer, homeFragment).commit();
