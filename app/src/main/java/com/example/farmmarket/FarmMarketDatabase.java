@@ -84,6 +84,7 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
         onCreate(db);
     }
 
+
     void addCategory() {
         SQLiteDatabase db = this.getWritableDatabase();
         List<String> categories = new ArrayList<>();

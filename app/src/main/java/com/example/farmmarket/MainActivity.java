@@ -3,8 +3,10 @@ import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
+import android.preference.PreferenceManager;
 import android.view.MenuItem;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -16,7 +18,6 @@ public class MainActivity extends AppCompatActivity {
     BottomNavigationView bottomNavigationView;
     HomeFragment homeFragment = new HomeFragment();
     CategoryFragment categoryFragment = new CategoryFragment();
-
 
 
     @Override
@@ -36,9 +37,13 @@ public class MainActivity extends AppCompatActivity {
         menuItem.setEnabled(false);
 
 
-        //Create category in database
-        FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
-        db.addCategory();
+        //Create category in database (Run once in lifecycle)
+        SharedPreferences  prefs = getPreferences(this.MODE_PRIVATE);
+        if(prefs.getBoolean("firstRun", true)) {
+            FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
+            db.addCategory();
+            prefs.edit().putBoolean("firstRun", false).commit();
+        }
 
 
         //Switch fragment
@@ -69,4 +74,7 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
+
+
+
 }
