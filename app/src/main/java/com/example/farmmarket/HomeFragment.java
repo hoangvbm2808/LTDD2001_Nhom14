@@ -3,7 +3,10 @@ package com.example.farmmarket;
 import android.os.Bundle;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.fragment.app.Fragment;
+import androidx.recyclerview.widget.GridLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager2.widget.CompositePageTransformer;
 import androidx.viewpager2.widget.MarginPageTransformer;
@@ -20,6 +23,9 @@ import java.util.List;
 public class HomeFragment extends Fragment {
     ViewPager2 viewPager2;
     private Handler slideHandler = new Handler();
+
+    private RecyclerView recyclerViewProductList;
+    private RecyclerView.Adapter adapter;
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
@@ -79,5 +85,31 @@ public class HomeFragment extends Fragment {
     public void onResume() {
         super.onResume();
         slideHandler.postDelayed(sliderRunnable, 3000);
+    }
+    @Override
+    public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
+        recyclerViewProductList = view.findViewById(R.id.listProduct);
+        recyclerViewProductList.setLayoutManager(linearLayoutManager);
+        recyclerViewProductList.setHasFixedSize(true);
+        ArrayList<Product> products = new ArrayList<>();
+        products.add(new Product("Rau Củ", "rau_bapcaitrang", 12000));
+        products.add(new Product("Thịt", "heo_nacdam", 13000) );
+        products.add(new Product("Thủy Sản", "tom_the",14000));
+        products.add(new Product("Trứng", "trung_ga6", 16000));
+        products.add(new Product("Trái cây", "nho_xanhkhonghatuc",17900));
+        products.add(new Product("Thực Phẩm Đông Lạnh", "vien_ca2",20000));
+        products.add(new Product("Thực Phẩm Sơ Chế", "thucpham_soche", 30000));
+        products.add(new Product("Dầu Ăn, Gia Vị", "gia_vi", 21000));
+        products.add(new Product("Gạo, Mì, Bún, Đậu", "me_trang_khong_vo", 22000));
+        products.add(new Product("Thực Phẩm Khô", "thucuongyenmach",23000));
+        products.add(new Product("Bánh Kẹo", "banh_bong_lan_solite_cuon_bo_sua_360g", 24000));
+        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
+        recyclerViewProductList.setLayoutManager(gridLayoutManager);
+
+        adapter=new ProductAdaptor(products);
+        recyclerViewProductList.setAdapter(adapter);
+
     }
 }
