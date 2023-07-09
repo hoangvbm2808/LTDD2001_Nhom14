@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
         if(prefs.getBoolean("firstRun", true)) {
             FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
             db.addCategory();
+            db.addProduct();
             prefs.edit().putBoolean("firstRun", false).commit();
         }
 

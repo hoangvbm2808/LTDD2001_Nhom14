@@ -75,7 +75,19 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
                                 " (" + COLUMN_CATEGORY_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                                         COLUMN_CATEGORY_NAME + " TEXT); ";
 
+
+        String queryProduct = "CREATE TABLE " + TABLE_PRODUCT +
+                " (" + COLUMN_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
+                COLUMN_PRODUCT_NAME + " TEXT, "+
+                COLUMN_PRODUCT_DESCRIPTION + " TEXT, "+
+                COLUMN_PRODUCT_PRICE + " NUMERIC, "+
+                COLUMN_PRODUCT_IMAGE + " TEXT, "+
+                COLUMN_PRODUCT_CREATED_DATE + " TEXT, "+
+                COLUMN_PRODUCT_CURRENT_INVENTORY + " INTEGER, "+
+                COLUMN_PRODUCT_CATEGORY_ID + " INTEGER); ";
+
         db.execSQL(query);
+        db.execSQL(queryProduct);
     }
 
     @Override
@@ -128,5 +140,48 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
             cv.put(COLUMN_CATEGORY_NAME,c);
             db.insert(TABLE_CATEGORY, null, cv);
         });
+    }
+
+    void addProduct() {
+        SQLiteDatabase db = this.getWritableDatabase();
+        List<ContentValues> products = new ArrayList<>();
+        ContentValues cv1 = createContentValuesProduct("Bắp cải tím", "100% không thuôc trừ sâu", 10000, "bapcaitim", "09/07/2023", 100, 1);
+        ContentValues cv2 = createContentValuesProduct("Bắp cải trắng", "100% không thuôc trừ sâu", 16000, "bapcaitrang", "09/07/2023", 100, 1);
+        ContentValues cv3 = createContentValuesProduct("Bắp cải xanh", "100% không thuôc trừ sâu", 12000, "bapcaixanh", "09/07/2023", 100, 1);
+        ContentValues cv4 = createContentValuesProduct("Bắp cải tím", "100% không thuôc trừ sâu", 10000, "bapcaitim", "09/07/2023", 100, 1);
+        ContentValues cv5 = createContentValuesProduct("Bắp cải trắng", "100% không thuôc trừ sâu", 16000, "bapcaitrang", "09/07/2023", 100, 1);
+        ContentValues cv6 = createContentValuesProduct("Bắp cải xanh", "100% không thuôc trừ sâu", 12000, "bapcaixanh", "09/07/2023", 100, 1);
+        ContentValues cv7 = createContentValuesProduct("Bắp cải tím", "100% không thuôc trừ sâu", 10000, "bapcaitim", "09/07/2023", 100, 1);
+        ContentValues cv8 = createContentValuesProduct("Bắp cải trắng", "100% không thuôc trừ sâu", 16000, "bapcaitrang", "09/07/2023", 100, 1);
+        ContentValues cv9 = createContentValuesProduct("Bắp cải xanh", "100% không thuôc trừ sâu", 12000, "bapcaixanh", "09/07/2023", 100, 1);
+        ContentValues cv10 = createContentValuesProduct("Bắp cải xanh", "100% không thuôc trừ sâu", 12000, "bapcaixanh", "09/07/2023", 100, 1);
+        products.add(cv1);
+        products.add(cv2);
+        products.add(cv3);
+        products.add(cv4);
+        products.add(cv5);
+        products.add(cv6);
+        products.add(cv7);
+        products.add(cv8);
+        products.add(cv9);
+        products.add(cv10);
+
+        products.forEach(p -> {
+            db.insert(TABLE_PRODUCT, null, p);
+        });
+
+    }
+
+    private ContentValues createContentValuesProduct(String name,String des, long price, String image,
+                                                    String date, int ci, int cate_id){
+        ContentValues cv = new ContentValues();
+        cv.put(COLUMN_PRODUCT_NAME, name);
+        cv.put(COLUMN_PRODUCT_DESCRIPTION, des);
+        cv.put(COLUMN_PRODUCT_PRICE, price);
+        cv.put(COLUMN_PRODUCT_IMAGE, image);
+        cv.put(COLUMN_PRODUCT_CREATED_DATE, date);
+        cv.put(COLUMN_PRODUCT_CURRENT_INVENTORY, ci);
+        cv.put(COLUMN_PRODUCT_CATEGORY_ID, cate_id);
+        return cv;
     }
 }
