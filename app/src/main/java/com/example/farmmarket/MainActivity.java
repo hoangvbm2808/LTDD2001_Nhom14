@@ -25,6 +25,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        String first_name = getIntent().getStringExtra("first_name");
+        String last_name = getIntent().getStringExtra("last_name");
+
         FloatingActionButton myFab = (FloatingActionButton) findViewById(R.id.myFab);
         myFab.setColorFilter(Color.WHITE);
 
@@ -67,7 +70,11 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 if (item.getItemId() == R.id.menuAccount ) {
-                    startActivity(new Intent(MainActivity.this, AccountActivity.class));
+                    Intent goToAccountActivity = new Intent(MainActivity.this, AccountActivity.class);
+                    goToAccountActivity.putExtra("first_name", first_name);
+                    goToAccountActivity.putExtra("last_name", last_name);
+
+                    startActivity(goToAccountActivity);
 
                     return true;
                 }

@@ -12,6 +12,17 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONException;
+import org.json.JSONObject;
+
+import java.util.HashMap;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
@@ -74,7 +85,36 @@ public class FormRegister extends AppCompatActivity implements View.OnClickListe
                 if (sdt.length() == 10 && sdt.startsWith("0")) {
                     if (password.length() > 5) {
                         Toast.makeText(FormRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
-                        startActivity(new Intent(FormRegister.this, LoginActivity.class));
+                        RequestQueue queue = Volley.newRequestQueue(FormRegister.this);
+
+                        String url = "http://192.168.1.7:9000/user/save";
+
+                        HashMap<String,String> params = new HashMap<String, String>();
+                        params.put("first_name", fName);
+                        params.put("last_name", lName);
+                        params.put("email", email);
+                        params.put("phone",sdt);
+                        params.put("username",username);
+                        params.put("password",password);
+
+                        JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+                                url, new JSONObject(params), new Response.Listener<JSONObject>() {
+                            @Override
+                            public void onResponse(JSONObject response) {
+                                    Intent gotoFormLogin= new Intent(FormRegister.this, FormLogin.class);
+                                    startActivity(gotoFormLogin);
+                                    finish();
+                            }
+                        }, new Response.ErrorListener() {
+                            @Override
+                            public void onErrorResponse(VolleyError error) {
+                                error.printStackTrace();
+                                System.out.println(error.getMessage());
+                                Toast.makeText(FormRegister.this, "Register fail", Toast.LENGTH_LONG).show();
+                            }
+                        });
+
+                        queue.add(jsonObjectRequest);
                     } else {
                         Toast.makeText(FormRegister.this, "Mat khau khong hop le.Vui long nhap lai", Toast.LENGTH_SHORT).show();
                         edtPass.setText("");
