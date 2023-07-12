@@ -26,6 +26,9 @@
             android:name=".MainActivity"
             android:exported="false" />
         <activity
+            android:name=".ProductFragment"
+            android:exported="false" />
+        <activity
             android:name=".AccountActivity"
             android:exported="false" />
         <activity

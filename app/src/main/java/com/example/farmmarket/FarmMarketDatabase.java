@@ -2,6 +2,7 @@ package com.example.farmmarket;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
 import android.widget.Toast;
@@ -47,21 +48,6 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
     private static final String COLUMN_ORDER_DETAIL_PRODUCT_ID = "product_id";
     private static final String COLUMN_ORDER_DETAIL_UNIT_PRICE = "unit_price";
     private static final String COLUMN_ORDER_DETAIL_QUANTITY = "quantity";
-
-
-    private static final String TABLE_USER = "USER";
-    private static final String COLUMN_USER_ID = "_id";
-    private static final String COLUMN_USER_FIRST_NAME = "first_name";
-    private static final String COLUMN_USER_LAST_NAME = "last_name";
-    private static final String COLUMN_USER_EMAIL = "email";
-    private static final String COLUMN_USER_PHONE = "phone";
-    private static final String COLUMN_USER_USERNAME = "username";
-    private static final String COLUMN_USER_PASSWORD = "password";
-
-
-
-
-
 
 
     public FarmMarketDatabase(@Nullable Context context) {
@@ -161,7 +147,7 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
         ContentValues cv14 = createContentValuesProduct("Củ cải đỏ", "100% không thuôc trừ sâu", 10000, "cucaido", "09/07/2023", 100, 1);
         ContentValues cv15 = createContentValuesProduct("Củ cải trắng", "100% không thuôc trừ sâu", 16000, "cucaitrang", "09/07/2023", 100, 1);
         ContentValues cv16 = createContentValuesProduct("Đậu cove", "100% không thuôc trừ sâu", 12000, "daucove", "09/07/2023", 100, 1);
-        ContentValues cv17 = createContentValuesProduct("Đậu nành", "100% không thuôc trừ sâu", 10000, "daunanh", "09/07/2023", 100, 1);
+        ContentValues cv17 = createContentValuesProduct("Đậu nành", "100% không thuôc trừ sâu", 10000, "dau_nanh", "09/07/2023", 100, 1);
         ContentValues cv18 = createContentValuesProduct("Dưa leo", "100% không thuôc trừ sâu", 16000, "dualeo", "09/07/2023", 100, 1);
         ContentValues cv19 = createContentValuesProduct("Khoai tây", "100% không thuôc trừ sâu", 12000, "khoaitay", "09/07/2023", 100, 1);
         //Thịt
@@ -1000,4 +986,31 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
         cv.put(COLUMN_PRODUCT_CATEGORY_ID, cate_id);
         return cv;
     }
+
+    public ArrayList<Product> getProductByCateId(int CateId) {
+        String SQL = "SELECT * FROM Product WHERE category_id = " + CateId;
+        SQLiteDatabase  query = getReadableDatabase();
+
+        Cursor cursor = query.rawQuery(SQL,null);
+
+        ArrayList<Product> products = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String description = cursor.getString(2);
+            Long price = cursor.getLong(3);
+            String img = cursor.getString(4);
+            String create_date = cursor.getString(5);
+            int current_inventory = cursor.getInt(6);
+            int cate_id = cursor.getInt(7);
+            Product product = new Product(id,name, img,price,description,create_date,current_inventory,cate_id);
+
+            products.add(product);
+        }
+
+        return products;
+
+    }
+
+
 }

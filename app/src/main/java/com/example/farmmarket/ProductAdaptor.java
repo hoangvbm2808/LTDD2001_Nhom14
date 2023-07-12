@@ -13,7 +13,10 @@ import com.bumptech.glide.Glide;
 
 import org.w3c.dom.Text;
 
+import java.text.NumberFormat;
 import java.util.ArrayList;
+import java.util.Currency;
+import java.util.Locale;
 
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder>{
     ArrayList<Product> products;
@@ -35,6 +38,16 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.pic);
+
+        Locale vnd = new Locale("vi", "VN");
+        Currency vietnamdong = Currency.getInstance(vnd);
+        NumberFormat vietnamdongFormat = NumberFormat.getCurrencyInstance(vnd);
+
+
+        String price = vietnamdongFormat.format(products.get(position).getPrice());
+
+
+        holder.price.setText(price);
     }
 
 

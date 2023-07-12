@@ -66,7 +66,7 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 if (item.getItemId() == R.id.menuInvoice ) {
-               //     startActivity(new Intent(MainActivity.this, LoginActivity.class));
+                    getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer, homeFragment).commit();
                     return true;
                 }
                 if (item.getItemId() == R.id.menuAccount ) {
@@ -82,7 +82,6 @@ public class MainActivity extends AppCompatActivity {
             }
         });
     }
-
 
 
 }

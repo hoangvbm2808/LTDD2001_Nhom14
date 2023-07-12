@@ -16,9 +16,10 @@ import java.util.ArrayList;
 
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
     ArrayList<Category> categories;
-
-    public CategoryAdaptor(ArrayList<Category> foodDomains) {
+    private ItemClickListener mItemListener;
+    public CategoryAdaptor(ArrayList<Category> foodDomains, ItemClickListener itemClickListener) {
         this.categories = foodDomains;
+        this.mItemListener = itemClickListener;
     }
     @Override
     public CategoryAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
@@ -34,6 +35,13 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
         Glide.with(holder.itemView.getContext())
                 .load(drawableResourceId)
                 .into(holder.pic);
+        holder.itemView.setOnClickListener(view -> {
+            mItemListener.onItemClick(categories.get(position));
+        });
+
+    }
+    public interface ItemClickListener {
+        void onItemClick(Category category);
     }
 
 
@@ -51,5 +59,6 @@ public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHo
             title=itemView.findViewById(R.id.categoryName);
         }
     }
+
 
 }

@@ -94,17 +94,7 @@ public class HomeFragment extends Fragment {
         recyclerViewProductList.setLayoutManager(linearLayoutManager);
         recyclerViewProductList.setHasFixedSize(true);
         ArrayList<Product> products = new ArrayList<>();
-        products.add(new Product("Rau Củ", "rau_bapcaitrang", 12000));
-        products.add(new Product("Thịt", "heo_nacdam", 13000) );
-        products.add(new Product("Thủy Sản", "tom_the",14000));
-        products.add(new Product("Trứng", "trung_ga6", 16000));
-        products.add(new Product("Trái cây", "nho_xanhkhonghatuc",17900));
-        products.add(new Product("Thực Phẩm Đông Lạnh", "vien_ca2",20000));
-        products.add(new Product("Thực Phẩm Sơ Chế", "thucpham_soche", 30000));
-        products.add(new Product("Dầu Ăn, Gia Vị", "gia_vi", 21000));
-        products.add(new Product("Gạo, Mì, Bún, Đậu", "me_trang_khong_vo", 22000));
-        products.add(new Product("Thực Phẩm Khô", "thucuongyenmach",23000));
-        products.add(new Product("Bánh Kẹo", "banh_bong_lan_solite_cuon_bo_sua_360g", 24000));
+
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
         recyclerViewProductList.setLayoutManager(gridLayoutManager);
 
