@@ -3,6 +3,7 @@ package com.example.farmmarket;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
 
@@ -27,6 +28,7 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
     @Override
     public ProductAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product,parent, false);
+
         return new ProductAdaptor.ViewHolder(inflate);
     }
 
@@ -60,11 +62,13 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         TextView name;
         TextView price;
         ImageView pic;
+        Button btnAdd;
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
             pic=itemView.findViewById(R.id.productPic);
             name=itemView.findViewById(R.id.productName);
             price=itemView.findViewById(R.id.productPrice);
+            btnAdd=itemView.findViewById(R.id.btnAdd);
         }
     }
 }
