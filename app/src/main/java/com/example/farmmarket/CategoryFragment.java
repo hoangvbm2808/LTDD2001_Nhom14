@@ -66,7 +66,7 @@ public class CategoryFragment extends Fragment{
             public void onItemClick(Category category) {
                 FarmMarketDatabase db = new FarmMarketDatabase(getActivity());
                 ArrayList<Product> arrproduct = db.getProductByCateId(category.getId());
-                Log.d("INFO_CATEGORY", String.valueOf(category.getId()));
+              // DEBUG:  Log.d("INFO_CATEGORY", String.valueOf(category.getId()));
                 Intent goToListProduct = new Intent(getActivity(), ProductFragment.class);
                 goToListProduct.putParcelableArrayListExtra("listProducts", arrproduct);
                 startActivity(goToListProduct);

@@ -2,6 +2,7 @@ package com.example.farmmarket;
 
 import android.content.ContentValues;
 import android.content.Context;
+import android.content.Intent;
 import android.database.Cursor;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -1011,6 +1012,46 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
         return products;
 
     }
+
+    public ArrayList<String> getAllNameProduct() {
+        String SQL = "SELECT * FROM Product";
+        SQLiteDatabase  query = getReadableDatabase();
+
+        Cursor cursor = query.rawQuery(SQL,null);
+        ArrayList<String> nameProducts = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            String name = cursor.getString(1);
+            nameProducts.add(name);
+        }
+        return nameProducts;
+    }
+
+    public ArrayList<Product> getProductByName(String nameproduct) {
+        String SQL = "SELECT * FROM Product WHERE name like '%" + nameproduct +"%'";
+        SQLiteDatabase  query = getReadableDatabase();
+
+        Cursor cursor = query.rawQuery(SQL,null);
+
+        ArrayList<Product> products = new ArrayList<>();
+        while (cursor.moveToNext()) {
+            int id = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String description = cursor.getString(2);
+            Long price = cursor.getLong(3);
+            String img = cursor.getString(4);
+            String create_date = cursor.getString(5);
+            int current_inventory = cursor.getInt(6);
+            int cate_id = cursor.getInt(7);
+            Product product = new Product(id,name, img,price,description,create_date,current_inventory,cate_id);
+
+            products.add(product);
+        }
+
+        return products;
+
+    }
+
+
 
 
 }
