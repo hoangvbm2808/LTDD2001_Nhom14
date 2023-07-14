@@ -5,11 +5,13 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 
+import java.util.HashMap;
+
 public class CartActivity extends AppCompatActivity {
 
     private RecyclerView.Adapter adapter;
     private RecyclerView recyclerView;
-//    private ManagementCart managementCart;
+    private HashMap<Integer, Integer> cart;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

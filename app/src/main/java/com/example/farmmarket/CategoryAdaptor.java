@@ -15,7 +15,7 @@ import com.bumptech.glide.Glide;
 import java.util.ArrayList;
 
 public class CategoryAdaptor extends RecyclerView.Adapter<CategoryAdaptor.ViewHolder> {
-    ArrayList<Category> categories;
+    ArrayList<Category> categories = new ArrayList<>();
     private ItemClickListener mItemListener;
     public CategoryAdaptor(ArrayList<Category> foodDomains, ItemClickListener itemClickListener) {
         this.categories = foodDomains;

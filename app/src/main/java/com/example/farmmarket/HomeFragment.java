@@ -89,17 +89,17 @@ public class HomeFragment extends Fragment {
     @Override
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
-        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
-        recyclerViewProductList = view.findViewById(R.id.listProduct);
-        recyclerViewProductList.setLayoutManager(linearLayoutManager);
-        recyclerViewProductList.setHasFixedSize(true);
-        ArrayList<Product> products = new ArrayList<>();
-
-        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
-        recyclerViewProductList.setLayoutManager(gridLayoutManager);
-
-        adapter=new ProductAdaptor(products);
-        recyclerViewProductList.setAdapter(adapter);
+//        LinearLayoutManager linearLayoutManager=new LinearLayoutManager(view.getContext(), LinearLayoutManager.VERTICAL, false);
+//        recyclerViewProductList = view.findViewById(R.id.listProduct);
+//        recyclerViewProductList.setLayoutManager(linearLayoutManager);
+//        recyclerViewProductList.setHasFixedSize(true);
+//        ArrayList<Product> products = new ArrayList<>();
+//
+//        GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 2);
+//        recyclerViewProductList.setLayoutManager(gridLayoutManager);
+//
+////        adapter=new ProductAdaptor(products);
+//        recyclerViewProductList.setAdapter(adapter);
 
     }
 }

@@ -9,7 +9,6 @@ import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.AutoCompleteTextView;
 import android.widget.ImageView;
-import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -47,7 +46,7 @@ public class SearchActivity extends AppCompatActivity {
                 nameProduct = adapter.getItem(position);
                 FarmMarketDatabase db = new FarmMarketDatabase(SearchActivity.this);
                 ArrayList<Product> arrproduct = db.getProductByName(nameProduct);
-                Intent goToListProduct = new Intent(getApplicationContext(), ProductFragment.class);
+                Intent goToListProduct = new Intent(getApplicationContext(), ProductActivity.class);
                 goToListProduct.putParcelableArrayListExtra("listProducts", arrproduct);
                 startActivity(goToListProduct);
             }

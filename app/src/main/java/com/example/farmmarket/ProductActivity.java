@@ -3,24 +3,20 @@ package com.example.farmmarket;
 import android.content.Intent;
 import android.os.Bundle;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
-import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.GridLayoutManager;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.util.Log;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.ImageView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
-import java.util.List;
+import java.util.HashMap;
 
-public class ProductFragment extends AppCompatActivity {
+public class ProductActivity extends AppCompatActivity implements ProductAdaptor.ProductRecycle{
 
     private RecyclerView recyclerViewProductList;
     private RecyclerView.Adapter adapter;
@@ -28,6 +24,10 @@ public class ProductFragment extends AppCompatActivity {
     private ImageView btnBack;
 
     ArrayList<Product> arrproducts;
+
+    private Cart cart = new Cart();
+    private HashMap<Integer,Integer> carthm;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
@@ -42,7 +42,21 @@ public class ProductFragment extends AppCompatActivity {
             }
         });
 
+
         this.arrproducts = getIntent().getParcelableArrayListExtra("listProducts");
+
+
+        //New cart
+        this.carthm = this.cart.getCart();
+//        //Get cart from Category Fragment
+//        this.carthm = (HashMap) getIntent().getSerializableExtra("Cart");
+//
+//        //Parse Carthm to Cart
+//        this.cart = new Cart(this.carthm);
+        this.cart.showCart();
+
+        //Send cart to ProductApdaptor
+
 
 
         recyclerViewProductList = findViewById(R.id.listProduct);
@@ -52,12 +66,14 @@ public class ProductFragment extends AppCompatActivity {
         GridLayoutManager gridLayoutManager = new GridLayoutManager(this, 2);
         recyclerViewProductList.setLayoutManager(gridLayoutManager);
 
-        adapter=new ProductAdaptor(arrproducts);
+        adapter=new ProductAdaptor(arrproducts, this);
         recyclerViewProductList.setAdapter(adapter);
     }
     @Override
     public void onPause() {
         super.onPause();
+        //Added
+        finish();
     }
 
     @Override
@@ -65,4 +81,9 @@ public class ProductFragment extends AppCompatActivity {
         super.onResume();
     }
 
+    @Override
+    public void getProduct(Integer productid) {
+        this.cart.addProduct(productid);
+        Toast.makeText(this, "Bạn đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+    }
 }

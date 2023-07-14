@@ -2,13 +2,12 @@ package com.example.farmmarket;
 
 public class Category {
 
-    public static int count;
-
-    private int id = ++count;
+    private int id ;
     private String title;
     private String pic;
 
-    public Category(String title, String pic) {
+    public Category(Integer id, String title, String pic) {
+        this.id = id;
         this.title = title;
         this.pic = pic;
     }

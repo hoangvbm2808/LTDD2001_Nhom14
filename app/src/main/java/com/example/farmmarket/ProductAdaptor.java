@@ -1,11 +1,14 @@
 package com.example.farmmarket;
 
+import android.os.Bundle;
+import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -22,14 +25,19 @@ import java.util.Locale;
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder>{
     ArrayList<Product> products;
 
-    public ProductAdaptor(ArrayList<Product> foodDomains) {
+//    private Cart cart =new Cart();
+    ProductRecycle mListener;
+
+
+
+    public ProductAdaptor(ArrayList<Product> foodDomains, ProductRecycle mListener) {
         this.products = foodDomains;
+        this.mListener = mListener;
     }
     @Override
     public ProductAdaptor.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_product,parent, false);
-
-        return new ProductAdaptor.ViewHolder(inflate);
+        return new ProductAdaptor.ViewHolder(inflate, mListener);
     }
 
     @Override
@@ -48,8 +56,9 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
 
         String price = vietnamdongFormat.format(products.get(position).getPrice());
 
-
+        holder.productid = products.get(position).getId();
         holder.price.setText(price);
+
     }
 
 
@@ -62,13 +71,27 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         TextView name;
         TextView price;
         ImageView pic;
+        int productid;
         Button btnAdd;
-        public ViewHolder(@NonNull View itemView) {
+        ProductRecycle mListener;
+        public ViewHolder(@NonNull View itemView, ProductRecycle mListener) {
             super(itemView);
+            this.mListener = mListener;
             pic=itemView.findViewById(R.id.productPic);
             name=itemView.findViewById(R.id.productName);
             price=itemView.findViewById(R.id.productPrice);
             btnAdd=itemView.findViewById(R.id.btnAdd);
+            btnAdd.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View v) {
+                    mListener.getProduct(productid);
+//                    Log.d("INFO_PRODUCT", "Added "+productid);
+                }
+            });
         }
+    }
+
+    interface ProductRecycle{
+        void getProduct(Integer product_id);
     }
 }

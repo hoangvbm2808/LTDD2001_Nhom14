@@ -7,6 +7,7 @@ import android.content.SharedPreferences;
 import android.graphics.Color;
 import android.os.Bundle;
 import android.preference.PreferenceManager;
+import android.util.Log;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -14,6 +15,8 @@ import android.widget.ImageView;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationBarView;
+
+import java.util.HashMap;
 
 
 public class MainActivity extends AppCompatActivity {
@@ -23,7 +26,7 @@ public class MainActivity extends AppCompatActivity {
     CategoryFragment categoryFragment = new CategoryFragment();
 
     ImageView btnSearch;
-
+    public Cart cart;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,12 +43,34 @@ public class MainActivity extends AppCompatActivity {
         bottomNavigationView.setBackground(null);
 
 
+        //Test card and put data to category fragment
+        if (this.cart == null) {
+            this.cart = new Cart();
+            this.cart.addProduct(1);
+            this.cart.addProduct(2);
+            this.cart.addProduct(3);
+            this.cart.addProduct(3);
+            this.cart.addProduct(3);
+            this.cart.minusProduct(2);
+            this.cart.minusProduct(3);
+//            this.cart.showCart();
+        }
+//        else {
+//            this.cart.showCart();
+//        }
+
+
+
+
         //Search button
         btnSearch = findViewById(R.id.btnSearch);
         btnSearch.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent goToSearchActivity = new Intent(MainActivity.this, SearchActivity.class);
+//                Bundle extras = new Bundle();
+//                extras.putSerializable("Cart",cart);
+//                goToSearchActivity.putExtras(extras);
                 startActivity(goToSearchActivity);
             }
         });
@@ -66,8 +91,8 @@ public class MainActivity extends AppCompatActivity {
 
 
         //Switch fragment
-
         getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer, homeFragment).commit();
+
 
         bottomNavigationView.setOnItemSelectedListener(new NavigationBarView.OnItemSelectedListener() {
             @Override
@@ -77,6 +102,10 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 if (item.getItemId() == R.id.menuCategory ) {
+                    //Put data from MainActivity to Categoryfragment
+                    Bundle bundle = new Bundle();
+                    bundle.putSerializable("Cart",cart);
+                    categoryFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer, categoryFragment).commit();
                     return true;
                 }

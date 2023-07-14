@@ -12,6 +12,7 @@ import androidx.annotation.Nullable;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Set;
 
 public class FarmMarketDatabase extends SQLiteOpenHelper {
 
@@ -1051,7 +1052,35 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Product> getProductById(Set<Integer> listid) {
 
+        ArrayList<Product> products = new ArrayList<>();
+
+        listid.forEach(i -> {
+            String SQL = "SELECT * FROM Product WHERE id = " + i;
+            SQLiteDatabase  query = getReadableDatabase();
+
+            Cursor cursor = query.rawQuery(SQL,null);
+
+
+            while (cursor.moveToNext()) {
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String description = cursor.getString(2);
+                Long price = cursor.getLong(3);
+                String img = cursor.getString(4);
+                String create_date = cursor.getString(5);
+                int current_inventory = cursor.getInt(6);
+                int cate_id = cursor.getInt(7);
+                Product product = new Product(id,name, img,price,description,create_date,current_inventory,cate_id);
+
+                products.add(product);
+            }
+        });
+
+        return products;
+
+    }
 
 
 }
