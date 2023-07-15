@@ -10,7 +10,7 @@ public class Product implements Parcelable {
     private int id;
     private String name;
     private String pic;
-    private long price;
+    private float price;
     private String description;
     private String create_date;
     private int current_inventory;
@@ -63,7 +63,7 @@ public class Product implements Parcelable {
         this.price = price;
     }
 
-    public Product(int id, String name, String pic, long price, String description, String create_date, int current_inventory, int cate_id) {
+    public Product(int id, String name, String pic, float price, String description, String create_date, int current_inventory, int cate_id) {
         this.id = id;
         this.name = name;
         this.pic = pic;
@@ -91,11 +91,11 @@ public class Product implements Parcelable {
         this.pic = pic;
     }
 
-    public long getPrice() {
+    public float getPrice() {
         return price;
     }
 
-    public void setPrice(long price) {
+    public void setPrice(float price) {
         this.price = price;
     }
 
@@ -103,7 +103,7 @@ public class Product implements Parcelable {
         this.id = in.readInt();
         this.name = in.readString();
         this.pic = in.readString();
-        this.price = in.readLong();
+        this.price = in.readFloat();
         this.description = in.readString();
         this.create_date = in.readString();
         this.current_inventory =in.readInt();
@@ -121,7 +121,7 @@ public class Product implements Parcelable {
         dest.writeInt(id);
         dest.writeString(name);
         dest.writeString(pic);
-        dest.writeLong(price);
+        dest.writeFloat(price);
         dest.writeString(description);
         dest.writeString(create_date);
         dest.writeInt(current_inventory);

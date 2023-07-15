@@ -26,6 +26,7 @@ public class MainActivity extends AppCompatActivity {
     CategoryFragment categoryFragment = new CategoryFragment();
 
     ImageView btnSearch;
+    ImageView btnCart;
     public Cart cart;
 
     @Override
@@ -46,18 +47,8 @@ public class MainActivity extends AppCompatActivity {
         //Test card and put data to category fragment
         if (this.cart == null) {
             this.cart = new Cart();
-            this.cart.addProduct(1);
-            this.cart.addProduct(2);
-            this.cart.addProduct(3);
-            this.cart.addProduct(3);
-            this.cart.addProduct(3);
-            this.cart.minusProduct(2);
-            this.cart.minusProduct(3);
-//            this.cart.showCart();
         }
-//        else {
-//            this.cart.showCart();
-//        }
+
 
 
 
@@ -68,10 +59,17 @@ public class MainActivity extends AppCompatActivity {
             @Override
             public void onClick(View v) {
                 Intent goToSearchActivity = new Intent(MainActivity.this, SearchActivity.class);
-//                Bundle extras = new Bundle();
-//                extras.putSerializable("Cart",cart);
-//                goToSearchActivity.putExtras(extras);
                 startActivity(goToSearchActivity);
+            }
+        });
+
+        //Cart button
+        btnCart = findViewById(R.id.btnCart);
+        btnCart.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent goToCartActivity = new Intent(MainActivity.this, CartActivity.class);
+                startActivity(goToCartActivity);
             }
         });
 
@@ -102,10 +100,6 @@ public class MainActivity extends AppCompatActivity {
                     return true;
                 }
                 if (item.getItemId() == R.id.menuCategory ) {
-                    //Put data from MainActivity to Categoryfragment
-                    Bundle bundle = new Bundle();
-                    bundle.putSerializable("Cart",cart);
-                    categoryFragment.setArguments(bundle);
                     getSupportFragmentManager().beginTransaction().replace(R.id.FragmentContainer, categoryFragment).commit();
                     return true;
                 }

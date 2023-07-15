@@ -52,7 +52,7 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    android:id="@+id/imageView8"
+                    android:id="@+id/btnCart"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"
@@ -62,7 +62,7 @@
                     tools:ignore="ContentDescription" />
 
                 <ImageView
-                    android:id="@+id/imageView9"
+                    android:id="@+id/btnNotification"
                     android:layout_width="40dp"
                     android:layout_height="40dp"
                     android:layout_weight="1"

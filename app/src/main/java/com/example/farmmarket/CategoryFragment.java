@@ -26,8 +26,7 @@ public class CategoryFragment extends Fragment{
     private ArrayList<Category> category = new ArrayList<>();
     private FarmMarketDatabase db = new FarmMarketDatabase(getActivity());
 
-    private HashMap<Integer,Integer> carthm;
-    private Cart cart;
+    private Cart cart = new Cart();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
@@ -64,17 +63,6 @@ public class CategoryFragment extends Fragment{
 
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 4);
         recyclerViewCategoryList.setLayoutManager(gridLayoutManager);
-
-
-        Log.d("INFO_TYPE",String.valueOf(getArguments().getSerializable("Cart")));
-        if (getArguments().getSerializable("Cart") != null){
-            // Get Cart form MainActivity
-            this.cart = (Cart) getArguments().getSerializable("Cart");
-            //Parse Cart to HashMap
-            this.carthm = this.cart.getCart();
-        }
-
-
 
 
         RecyclerView.Adapter adapter=new CategoryAdaptor(category, new CategoryAdaptor.ItemClickListener() {

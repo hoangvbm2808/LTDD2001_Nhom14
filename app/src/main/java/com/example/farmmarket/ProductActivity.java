@@ -26,7 +26,6 @@ public class ProductActivity extends AppCompatActivity implements ProductAdaptor
     ArrayList<Product> arrproducts;
 
     private Cart cart = new Cart();
-    private HashMap<Integer,Integer> carthm;
 
 
     @Override
@@ -46,19 +45,7 @@ public class ProductActivity extends AppCompatActivity implements ProductAdaptor
         this.arrproducts = getIntent().getParcelableArrayListExtra("listProducts");
 
 
-        //New cart
-        this.carthm = this.cart.getCart();
-//        //Get cart from Category Fragment
-//        this.carthm = (HashMap) getIntent().getSerializableExtra("Cart");
-//
-//        //Parse Carthm to Cart
-//        this.cart = new Cart(this.carthm);
-        this.cart.showCart();
-
         //Send cart to ProductApdaptor
-
-
-
         recyclerViewProductList = findViewById(R.id.listProduct);
         recyclerViewProductList.setLayoutManager(new LinearLayoutManager(this));
         recyclerViewProductList.setHasFixedSize(true);
@@ -72,7 +59,6 @@ public class ProductActivity extends AppCompatActivity implements ProductAdaptor
     @Override
     public void onPause() {
         super.onPause();
-        //Added
         finish();
     }
 
@@ -83,7 +69,7 @@ public class ProductActivity extends AppCompatActivity implements ProductAdaptor
 
     @Override
     public void getProduct(Integer productid) {
-        this.cart.addProduct(productid);
-        Toast.makeText(this, "Bạn đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
+        this.cart.addProduct(productid) ;
+        Toast.makeText(this, "Bạn đã thêm sản phẩm "+productid+ " vào giỏ hàng", Toast.LENGTH_SHORT).show();
     }
 }

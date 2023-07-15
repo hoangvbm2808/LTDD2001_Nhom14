@@ -68,7 +68,7 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
                 " (" + COLUMN_PRODUCT_ID + " INTEGER PRIMARY KEY AUTOINCREMENT, " +
                 COLUMN_PRODUCT_NAME + " TEXT, "+
                 COLUMN_PRODUCT_DESCRIPTION + " TEXT, "+
-                COLUMN_PRODUCT_PRICE + " NUMERIC, "+
+                COLUMN_PRODUCT_PRICE + " FLOAT, "+
                 COLUMN_PRODUCT_IMAGE + " TEXT, "+
                 COLUMN_PRODUCT_CREATED_DATE + " TEXT, "+
                 COLUMN_PRODUCT_CURRENT_INVENTORY + " INTEGER, "+
@@ -1057,7 +1057,7 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
         ArrayList<Product> products = new ArrayList<>();
 
         listid.forEach(i -> {
-            String SQL = "SELECT * FROM Product WHERE id = " + i;
+            String SQL = "SELECT * FROM Product WHERE _id = " + i;
             SQLiteDatabase  query = getReadableDatabase();
 
             Cursor cursor = query.rawQuery(SQL,null);
@@ -1067,7 +1067,7 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
                 int id = cursor.getInt(0);
                 String name = cursor.getString(1);
                 String description = cursor.getString(2);
-                Long price = cursor.getLong(3);
+                Float price = cursor.getFloat(3);
                 String img = cursor.getString(4);
                 String create_date = cursor.getString(5);
                 int current_inventory = cursor.getInt(6);
@@ -1082,5 +1082,28 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
 
     }
 
+    public Float getPriceProductById(Integer id) {
+
+        String SQL = "SELECT * FROM Product WHERE _id = " + id;
+        SQLiteDatabase query = getReadableDatabase();
+
+        Cursor cursor = query.rawQuery(SQL, null);
+
+        Float price = null;
+        while (cursor.moveToNext()) {
+            int pid = cursor.getInt(0);
+            String name = cursor.getString(1);
+            String description = cursor.getString(2);
+            price = cursor.getFloat(3);
+            String img = cursor.getString(4);
+            String create_date = cursor.getString(5);
+            int current_inventory = cursor.getInt(6);
+            int cate_id = cursor.getInt(7);
+        }
+
+
+        return price;
+
+    }
 
 }

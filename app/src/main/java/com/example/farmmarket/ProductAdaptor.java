@@ -24,8 +24,6 @@ import java.util.Locale;
 
 public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHolder>{
     ArrayList<Product> products;
-
-//    private Cart cart =new Cart();
     ProductRecycle mListener;
 
 
@@ -49,16 +47,15 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
                 .load(drawableResourceId)
                 .into(holder.pic);
 
+
         Locale vnd = new Locale("vi", "VN");
         Currency vietnamdong = Currency.getInstance(vnd);
         NumberFormat vietnamdongFormat = NumberFormat.getCurrencyInstance(vnd);
 
 
         String price = vietnamdongFormat.format(products.get(position).getPrice());
-
         holder.productid = products.get(position).getId();
         holder.price.setText(price);
-
     }
 
 
@@ -71,9 +68,9 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
         TextView name;
         TextView price;
         ImageView pic;
-        int productid;
         Button btnAdd;
         ProductRecycle mListener;
+        int productid;
         public ViewHolder(@NonNull View itemView, ProductRecycle mListener) {
             super(itemView);
             this.mListener = mListener;
@@ -84,8 +81,8 @@ public class ProductAdaptor extends RecyclerView.Adapter<ProductAdaptor.ViewHold
             btnAdd.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
+//                    Log.d("INFO_PRODUCTID_INVIEWHOLDER", String.valueOf(productid));
                     mListener.getProduct(productid);
-//                    Log.d("INFO_PRODUCT", "Added "+productid);
                 }
             });
         }
