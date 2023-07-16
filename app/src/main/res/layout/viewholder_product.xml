@@ -5,7 +5,8 @@
     android:id="@+id/mainLayout"
     android:layout_width="180dp"
     android:layout_height="wrap_content"
-    android:layout_margin="8dp">
+    android:layout_margin="8dp"
+    android:background="@drawable/background_item">
 
     <ImageView
         android:id="@+id/productPic"
@@ -28,6 +29,8 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:paddingLeft="3dp"
+        android:paddingEnd="3dp"
         android:singleLine="true"
         android:text="TextView"
         android:textAlignment="center"
@@ -47,8 +50,8 @@
         android:textAlignment="center"
         android:textColor="#000"
         android:textSize="18sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="@+id/productPic"
+        app:layout_constraintEnd_toEndOf="@+id/productName"
+        app:layout_constraintStart_toStartOf="@+id/productName"
         app:layout_constraintTop_toBottomOf="@+id/productName" />
 
     <Button
@@ -56,10 +59,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_marginTop="5dp"
+        android:layout_marginBottom="10dp"
         android:backgroundTint="#ed1c24"
         android:text="Thêm"
         app:icon="@drawable/outline_shopping_cart_24"
-        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/productPic"
         app:layout_constraintStart_toStartOf="@+id/productPic"
         app:layout_constraintTop_toBottomOf="@+id/productPrice" />
 

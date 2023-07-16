@@ -4,13 +4,24 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/mainLayout"
     android:layout_width="match_parent"
-    android:layout_height="wrap_content">
+    android:layout_height="wrap_content"
+    android:layout_marginStart="8dp"
+    android:layout_marginTop="4dp"
+    android:layout_marginEnd="8dp"
+    android:layout_marginBottom="4dp"
+    android:background="@drawable/background_item_in_cart"
+    android:clipToPadding="false"
+    android:elevation="10dp"
+    android:outlineProvider="bounds"
+    android:scaleType="centerCrop"
+    android:src="@drawable/rectangle3">
 
     <ImageView
         android:id="@+id/imgProduct"
         android:layout_width="100dp"
         android:layout_height="100dp"
         android:layout_marginStart="8dp"
+        android:layout_marginTop="16dp"
         android:layout_marginBottom="16dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,7 +60,7 @@
             android:id="@+id/btnMinus"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="#ed1c24"
+            android:background="@drawable/background_minus_btn"
             android:outlineProvider="none"
             app:srcCompat="@drawable/baseline_remove_24" />
 
@@ -84,7 +95,7 @@
             android:id="@+id/btnAdd"
             android:layout_width="25dp"
             android:layout_height="25dp"
-            android:background="#ed1c24"
+            android:background="@drawable/background_btnadd"
             android:outlineProvider="none"
             app:srcCompat="@drawable/round_add_24" />
 

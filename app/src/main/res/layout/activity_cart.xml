@@ -74,7 +74,8 @@
                 android:layout_height="match_parent"
                 android:layout_marginBottom="16dp"
                 android:clipToPadding="false"
-                android:paddingBottom="200dp" />
+                android:paddingBottom="500dp"
+                tools:listitem="@layout/viewholder_cart"/>
 
         </LinearLayout>
     </ScrollView>
@@ -83,7 +84,8 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentBottom="true"
-        android:background="#ffffff"
+        android:background="@drawable/background_item_in_cart"
+        android:elevation="10dp"
         android:orientation="vertical">
 
         <LinearLayout
@@ -102,8 +104,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="Tiền sản phẩm: "
-                android:textColor="#000000"
+                android:textColor="#515151"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -111,6 +114,7 @@
                 android:id="@+id/txtSubTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="0VND"
                 android:textColor="#000000"
                 android:textSize="18sp"
@@ -132,8 +136,9 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="Thuế: "
-                android:textColor="#000000"
+                android:textColor="#515151"
                 android:textSize="18sp"
                 android:textStyle="bold" />
 
@@ -141,6 +146,7 @@
                 android:id="@+id/txtTax"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="0VND"
                 android:textColor="#000"
                 android:textSize="18sp"
@@ -163,6 +169,7 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="Tổng tiền: "
                 android:textColor="#ed1c24"
                 android:textSize="28sp"
@@ -172,6 +179,7 @@
                 android:id="@+id/txtTotal"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
+                android:fontFamily="sans-serif-condensed-light"
                 android:text="0VND"
                 android:textColor="#ed1c24"
                 android:textSize="28sp"
