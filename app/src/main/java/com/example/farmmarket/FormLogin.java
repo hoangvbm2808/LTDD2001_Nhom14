@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -60,9 +61,16 @@ public class FormLogin extends AppCompatActivity {
                         try {
                             String first_name = (String) response.get("first_name");
                             String last_name = (String) response.get("last_name");
+                            int user_id = (Integer) response.get("id");
+
+                            Log.d("NAME", first_name);
+                            Log.d("NAME", last_name);
+                            Log.d("NAME", String.valueOf(user_id));
+
                             Intent gotoMainActivity = new Intent(FormLogin.this, MainActivity.class);
                             gotoMainActivity.putExtra("first_name", first_name);
                             gotoMainActivity.putExtra("last_name", last_name);
+                            gotoMainActivity.putExtra("user_id", user_id);
 
                             startActivity(gotoMainActivity);
                             finish();

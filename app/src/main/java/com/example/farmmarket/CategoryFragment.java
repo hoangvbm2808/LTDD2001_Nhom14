@@ -26,8 +26,6 @@ public class CategoryFragment extends Fragment{
     private ArrayList<Category> category = new ArrayList<>();
     private FarmMarketDatabase db = new FarmMarketDatabase(getActivity());
 
-    private Cart cart = new Cart();
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {

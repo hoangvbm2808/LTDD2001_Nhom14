@@ -70,6 +70,6 @@ public class ProductActivity extends AppCompatActivity implements ProductAdaptor
     @Override
     public void getProduct(Integer productid) {
         this.cart.addProduct(productid) ;
-        Toast.makeText(this, "Bạn đã thêm sản phẩm "+productid+ " vào giỏ hàng", Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, "Bạn đã thêm sản phẩm vào giỏ hàng", Toast.LENGTH_SHORT).show();
     }
 }

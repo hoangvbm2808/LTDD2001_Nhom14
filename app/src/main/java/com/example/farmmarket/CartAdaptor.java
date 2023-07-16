@@ -18,10 +18,8 @@ import com.bumptech.glide.Glide;
 
 import java.text.NumberFormat;
 import java.util.ArrayList;
-import java.util.Currency;
 import java.util.HashMap;
 import java.util.Locale;
-import java.util.Set;
 
 public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.ViewHolder> {
 
@@ -111,11 +109,11 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.ViewHolder> {
             super(itemView);
             pic=itemView.findViewById(R.id.imgProduct);
             num=itemView.findViewById(R.id.txtNum);
-            name=itemView.findViewById(R.id.txtNameProduct);
+            name=itemView.findViewById(R.id.textCreateDay);
             price=itemView.findViewById(R.id.priceItem);
             btnAdd=itemView.findViewById(R.id.btnAdd);
             btnMinus=itemView.findViewById(R.id.btnMinus);
-            totalPrice=itemView.findViewById(R.id.totalPrice);
+            totalPrice=itemView.findViewById(R.id.txtAmount);
             btnDeleteItem=itemView.findViewById(R.id.btnDeleteItem);
             listener=mListener;
             itemView.findViewById(R.id.btnDeleteItem).setOnClickListener(new View.OnClickListener() {
