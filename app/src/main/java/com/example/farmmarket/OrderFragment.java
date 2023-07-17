@@ -41,7 +41,9 @@ public class OrderFragment extends Fragment {
 
     private int user_id;
     private RecyclerView recyclerViewOrder;
+    RecyclerView.Adapter adapter;
     private List<Order> orders = new ArrayList<>();
+    MainActivity activity;
 
 
     @Override
@@ -52,8 +54,8 @@ public class OrderFragment extends Fragment {
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container,
                              Bundle savedInstanceState) {
-        MainActivity activity = (MainActivity) getActivity();
-        orders = activity.getOrders();
+        activity = (MainActivity) getActivity();
+        orders = activity.getListOrder();
 
 
         View view = inflater.inflate(R.layout.fragment_order, container, false);
@@ -67,8 +69,7 @@ public class OrderFragment extends Fragment {
         recyclerViewOrder.setHasFixedSize(true);
         GridLayoutManager gridLayoutManager = new GridLayoutManager(view.getContext(), 1);
         recyclerViewOrder.setLayoutManager(gridLayoutManager);
-        RecyclerView.Adapter adapter=new OrderAdapter(orders, activity.getSize());
-        recyclerViewOrder.setAdapter(adapter);
+
 
 
         return view;
@@ -78,5 +79,14 @@ public class OrderFragment extends Fragment {
     public void onViewCreated(@NonNull View view, @Nullable Bundle savedInstanceState) {
         super.onViewCreated(view, savedInstanceState);
 
+    }
+
+    @Override
+    public void onResume() {
+        super.onResume();
+        orders = activity.getListOrder();
+        Log.d("SIZE_InOrderFg", String.valueOf(orders.size()));
+        adapter=new OrderAdapter(orders, activity.getSize("a"));
+        recyclerViewOrder.setAdapter(adapter);
     }
 }

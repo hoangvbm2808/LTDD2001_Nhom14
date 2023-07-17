@@ -25,6 +25,7 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
 
     SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
     SimpleDateFormat outputFormat = new SimpleDateFormat("dd-MM-yyyy");
+    MainActivity activity = new MainActivity();
 
 
     int size;
@@ -36,27 +37,28 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
     @Override
     public OrderAdapter.ViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View inflate = LayoutInflater.from(parent.getContext()).inflate(R.layout.viewholder_order,parent, false);
-        this.size = listOrder.size();
         return new OrderAdapter.ViewHolder(inflate);
     }
 
     @Override
     public void onBindViewHolder(@NonNull OrderAdapter.ViewHolder holder, int position) {
 
-
-        Date date = null;
         try {
-            date = inputFormat.parse(listOrder.get(position).getCreate_day());
+            holder.txtCreateDay.setText(outputFormat.format(inputFormat.parse(listOrder.get(position).getCreate_day())));
         } catch (ParseException e) {
             throw new RuntimeException(e);
         }
+
+        Log.d("Position", String.valueOf(position));
         holder.txtAmount.setText(vietnamdongFormat.format(listOrder.get(position).getTotal_amount()));
-        holder.txtCreateDay.setText(outputFormat.format(date));
+
+
     }
 
     @Override
     public int getItemCount() {
-        return this.size;
+        Log.d("SIZE_InGetItemCOunt", String.valueOf(this.size));
+        return listOrder.size();
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -68,6 +70,8 @@ public class OrderAdapter extends RecyclerView.Adapter<OrderAdapter.ViewHolder>{
             txtCreateDay=itemView.findViewById(R.id.textCreateDay);
             txtAmount=itemView.findViewById(R.id.txtAmount);
 
+
         }
     }
+
 }

@@ -10,6 +10,8 @@
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginStart="50dp"
+        android:layout_marginEnd="50dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -39,15 +41,15 @@
 
             <Button
                 android:id="@+id/btnLogin"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="#ED1C24"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/be_vietnam_light"
                 android:text="ĐĂNG NHẬP"
                 android:textFontWeight="700"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:cornerRadius="15dp" />
         </LinearLayout>
 
@@ -58,15 +60,15 @@
 
             <Button
                 android:id="@+id/btnRegister"
-                android:layout_width="350dp"
-                android:layout_height="60dp"
+                android:layout_width="300dp"
+                android:layout_height="50dp"
                 android:layout_margin="5dp"
                 android:layout_weight="1"
                 android:backgroundTint="#ED1C24"
-                android:fontFamily="sans-serif-medium"
+                android:fontFamily="@font/be_vietnam_light"
                 android:text="ĐĂNG KÝ"
                 android:textFontWeight="700"
-                android:textSize="20sp"
+                android:textSize="16sp"
                 app:cornerRadius="15dp" />
 
         </LinearLayout>
@@ -74,13 +76,13 @@
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="287dp"
-        android:layout_height="117dp"
+        android:layout_width="250dp"
+        android:layout_height="100dp"
         android:fontFamily="@font/pacifico"
         android:gravity="center"
         android:text="Mua sắm trực tuyến nhận hàng tại nhà"
         android:textColor="#00ACC1"
-        android:textSize="30sp"
+        android:textSize="28sp"
         app:layout_constraintBottom_toTopOf="@+id/linearLayout"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -95,10 +97,13 @@
         android:layout_marginTop="15dp"
         android:background="@color/white"
         android:backgroundTint="@color/white"
+        android:fontFamily="@font/be_vietnam_light"
+        android:paddingStart="15dp"
         android:paddingLeft="15dp"
+        android:paddingEnd="15dp"
         android:paddingRight="15dp"
         android:text="Phương thức đăng nhập khác"
-        android:textSize="20sp"
+        android:textSize="16sp"
         android:translationY="-3dp"
         android:translationZ="999dp"
         android:visibility="visible"
@@ -106,9 +111,7 @@
         app:layout_constraintEnd_toEndOf="@+id/editTextTextMultiLine"
         app:layout_constraintStart_toStartOf="@+id/editTextTextMultiLine"
         app:layout_constraintTop_toTopOf="@+id/editTextTextMultiLine"
-        tools:visibility="visible"
-        android:paddingStart="15dp"
-        android:paddingEnd="15dp" />
+        tools:visibility="visible" />
 
     <EditText
         android:id="@+id/editTextTextMultiLine"
@@ -138,16 +141,16 @@
         android:layout_marginStart="110dp">
 
         <ImageView
-            android:id="@+id/imageView3"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/fbLogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/facebook" />
 
         <ImageView
-            android:id="@+id/imageView4"
-            android:layout_width="50dp"
-            android:layout_height="50dp"
+            android:id="@+id/ggLogin"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
             android:layout_weight="1"
             android:src="@drawable/google" />
     </LinearLayout>

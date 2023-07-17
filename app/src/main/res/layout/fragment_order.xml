@@ -17,6 +17,7 @@
             android:layout_height="wrap_content"
             android:layout_marginTop="16dp"
             android:layout_marginBottom="16dp"
+            android:fontFamily="@font/quicksand"
             android:text="LỊCH SỬ ĐƠN HÀNG"
             android:textAlignment="center"
             android:textColor="#ed1c24"

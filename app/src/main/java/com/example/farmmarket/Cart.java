@@ -76,6 +76,14 @@ public class Cart implements Serializable {
     Integer getNum(Integer product_id) {
         return cart.get(product_id);
     }
+    
+    Integer getNumInCart() {
+        int num = 0;
+        for(Integer c: cart.keySet()){
+            num += cart.get(c);
+        }
+        return num;
+    }
 
     HashMap<Integer, Integer> removeProduct(Integer productId) {
         cart.remove(productId);

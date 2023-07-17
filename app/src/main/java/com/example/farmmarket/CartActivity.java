@@ -6,18 +6,35 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import android.annotation.SuppressLint;
+import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.widget.Button;
 import android.widget.ImageView;
 import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.android.volley.Request;
+import com.android.volley.RequestQueue;
+import com.android.volley.Response;
+import com.android.volley.VolleyError;
+import com.android.volley.toolbox.JsonObjectRequest;
+import com.android.volley.toolbox.Volley;
+
+import org.json.JSONObject;
+
+import java.sql.Date;
 import java.text.NumberFormat;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
-import java.util.Currency;
+
+import java.util.Calendar;
 import java.util.HashMap;
 import java.util.Locale;
 
@@ -42,9 +59,14 @@ public class CartActivity extends AppCompatActivity {
     TextView txtSubTotal;
     TextView txtTax;
     TextView txtTotal;
+    Button btnPay;
+    int user_id;
+    SimpleDateFormat inputFormat = new SimpleDateFormat("yyyy-MM-dd");
+
     @SuppressLint("ClickableViewAccessibility")
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        Log.d("On_CREATE_Cart", "Createeeeeee");
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_cart);
 
@@ -60,13 +82,19 @@ public class CartActivity extends AppCompatActivity {
         txtSubTotal = findViewById(R.id.txtSubTotal);
         txtTax = findViewById(R.id.txtTax);
         txtTotal = findViewById(R.id.txtTotal);
+        btnPay = findViewById(R.id.btnPay);
+        user_id = getIntent().getIntExtra("user_id", 0);
 
 
         //Button back
         btnBack.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
+                Intent goToMainActivity = new Intent(CartActivity.this, MainActivity.class);
+                Log.d("USER_ID_IN_CART", String.valueOf(user_id));
+                goToMainActivity.putExtra("user_id",user_id);
                 finish();
+                startActivity(goToMainActivity);
             }
         });
 
@@ -129,21 +157,71 @@ public class CartActivity extends AppCompatActivity {
                 txtTotal.setText(vietnamdongFormat.format(getTotalAmount()));
             }
         });
+
+        Log.d("On_CREATE_Cart", "Stop");
     }
 
     @Override
     public void onPause() {
+        Log.d("On_Pause_Cart", "Start");
         super.onPause();
-        finish();
+        Log.d("On_Pause_Cart", "Stop");
     }
 
     @Override
     public void onResume() {
+        Log.d("On_Resume_Cart", "Start");
         super.onResume();
         //Set PayText
         txtSubTotal.setText(vietnamdongFormat.format(getTotalPrice()));
         txtTax.setText(vietnamdongFormat.format(getTax()));
         txtTotal.setText(vietnamdongFormat.format(getTotalAmount()));
+
+        btnPay.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                RequestQueue queue = Volley.newRequestQueue(CartActivity.this);
+
+                String url = "http://10.17.37.245:9000/order/save";
+
+                HashMap<String,String> params = new HashMap<String, String>();
+
+                LocalDate dateObj = LocalDate.now();
+                DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyy-MM-dd");
+                String date = dateObj.format(formatter);
+
+                params.put("create_day", date);
+                params.put("total_amount",String.valueOf(getTotalAmount()));
+                params.put("user_id",String.valueOf(user_id));
+
+                JsonObjectRequest jsonObjectRequest = new JsonObjectRequest(Request.Method.POST,
+                        url, new JSONObject(params), new Response.Listener<JSONObject>() {
+                    @Override
+                    public void onResponse(JSONObject response) {
+                        products.removeAll(products);
+                        cart.deleteCart();
+                        adapter.notifyDataSetChanged();
+                        layoutTotal.setVisibility(View.GONE);
+                        layoutTax.setVisibility(View.GONE);
+                        layoutSum.setVisibility(View.GONE);
+                        layoutPay.setVisibility(View.GONE);
+                        layoutcartNull.setVisibility(View.VISIBLE);
+                        Toast.makeText(CartActivity.this, "Thanh toán thành công", Toast.LENGTH_LONG).show();
+
+                    }
+                }, new Response.ErrorListener() {
+                    @Override
+                    public void onErrorResponse(VolleyError error) {
+                        error.printStackTrace();
+                        System.out.println(error.getMessage());
+                        Toast.makeText(CartActivity.this, "Thanh toán thất bại", Toast.LENGTH_LONG).show();
+                    }
+                });
+
+                queue.add(jsonObjectRequest);
+            }
+        });
+        Log.d("On_Resume_Cart", "Stop");
     }
 
     public Float getTotalPrice() {
@@ -166,6 +244,13 @@ public class CartActivity extends AppCompatActivity {
     public Float getTotalAmount() {
 
         return getTotalPrice() + getTax();
+    }
+
+    @Override
+    public void onStop() {
+        Log.d("ON_STOP_Cart", "Create");
+        super.onStop();
+        Log.d("ON_STOP_Cart", "STOPPPPPPPPPPP");
     }
 
 }

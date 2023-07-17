@@ -122,7 +122,6 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.ViewHolder> {
                     cart.removeProduct(listProduct.get(getAdapterPosition()).getId());
                     mListener.onItemDelete(getAdapterPosition());
                     Toast.makeText(context, "Xóa sản phẩm thành công", Toast.LENGTH_SHORT).show();
-                    totalPrice.setText(vietnamdongFormat.format(getTotalPrice()));
                 }
             });
 
@@ -131,9 +130,6 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.ViewHolder> {
                 public void onClick(View v) {
                     cart.addProduct(listProduct.get(getAdapterPosition()).getId());
                     mListener.onItemClick(getAdapterPosition());
-                    num.setText(String.valueOf(cart.getNum(listProduct.get(getAdapterPosition()).getId())));
-                    totalPrice.setText(vietnamdongFormat.format(getTotalPrice()));
-                    cart.showCart();
                 }
             });
             btnMinus.setOnClickListener(new View.OnClickListener() {
@@ -142,8 +138,11 @@ public class CartAdaptor extends RecyclerView.Adapter<CartAdaptor.ViewHolder> {
                     if (cart.getNum(listProduct.get(getAdapterPosition()).getId()) > 1){
                         cart.minusProduct(listProduct.get(getAdapterPosition()).getId());
                         mListener.onItemClick(getAdapterPosition());
-                        num.setText(String.valueOf(cart.getNum(listProduct.get(getAdapterPosition()).getId())));
-                        totalPrice.setText(vietnamdongFormat.format(getTotalPrice()));
+                    }
+                    else{
+                        cart.removeProduct(listProduct.get(getAdapterPosition()).getId());
+                        mListener.onItemDelete(getAdapterPosition());
+                        Toast.makeText(context, "Xóa sản phẩm thành công", Toast.LENGTH_SHORT).show();
                     }
                 }
             });

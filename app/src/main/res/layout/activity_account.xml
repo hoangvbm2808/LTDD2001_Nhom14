@@ -41,7 +41,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
                 android:background="#ed1c24"
-                android:fontFamily="monospace"
+                android:fontFamily="@font/quicksand"
                 android:text="TÀI KHOẢN"
                 android:textColor="#ffffff"
                 android:textSize="24sp"
@@ -70,8 +70,10 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/encode_sans"
             android:text="Username"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            android:textStyle="bold"></TextView>
 
         <ImageView
             android:layout_width="5dp"
@@ -105,6 +107,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:fontFamily="@font/quicksand"
             android:text="Theo dõi đơn"
             android:textSize="20sp"
             android:textStyle="bold"></TextView>
@@ -133,6 +136,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/be_vietnam_light"
                     android:text="Đơn chờ thanh tóan"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
@@ -155,6 +159,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/be_vietnam_light"
                     android:text="Đơn chờ thanh tóan"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
@@ -177,6 +182,7 @@
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
+                    android:fontFamily="@font/be_vietnam_light"
                     android:text="Đơn chờ thanh tóan"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
@@ -202,6 +208,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/be_vietnam_light"
             android:text="Chế độ tối"
             android:textSize="20sp"></TextView>
         <!--Nut switch-->
@@ -232,6 +239,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/be_vietnam_light"
             android:text="Đánh giá của tôi"
             android:textSize="20sp"></TextView>
 
@@ -258,6 +266,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/be_vietnam_light"
             android:text="Gửi tin nhắn cho chúng tôi"
             android:textSize="20sp"></TextView>
 
@@ -284,6 +293,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/be_vietnam_light"
             android:text="Gọi tổng đài 1900 1880"
             android:textSize="20sp"></TextView>
 
@@ -310,6 +320,7 @@
             android:layout_height="wrap_content"
             android:layout_marginLeft="10dp"
             android:layout_weight="2"
+            android:fontFamily="@font/be_vietnam_light"
             android:text="Chính sách và điều khoản"
             android:textSize="20sp"></TextView>
 

@@ -27,7 +27,7 @@ import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FormRegister extends AppCompatActivity implements View.OnClickListener {
-    private Button registerBtn;
+    private Button registerBtn, btnBack;
     private EditText edtFName, edtLName, edtSDT, edtEmail, edtUserName, edtPass;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,8 +41,14 @@ public class FormRegister extends AppCompatActivity implements View.OnClickListe
         edtSDT = findViewById(R.id.edtSDT);
         edtUserName = findViewById(R.id.edtUsername);
         edtPass = findViewById(R.id.edtPass);
-
+        btnBack = findViewById(R.id.btnBack);
         registerBtn.setOnClickListener(this);
+        btnBack.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                finish();
+            }
+        });
 
     }
 
@@ -87,7 +93,7 @@ public class FormRegister extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(FormRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                         RequestQueue queue = Volley.newRequestQueue(FormRegister.this);
 
-                        String url = "http://192.168.1.7:9000/user/save";
+                        String url = "http://10.17.37.245:9000/user/save";
 
                         HashMap<String,String> params = new HashMap<String, String>();
                         params.put("first_name", fName);

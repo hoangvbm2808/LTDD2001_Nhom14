@@ -6,6 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
+import android.view.WindowManager;
 import android.widget.Button;
 import android.widget.EditText;
 import android.widget.Toast;
@@ -19,6 +20,9 @@ import com.android.volley.toolbox.Volley;
 import com.example.farmmarket.model.User;
 import com.example.farmmarket.retrofit.RetrofitService;
 import com.example.farmmarket.retrofit.UserApi;
+import com.google.android.gms.auth.api.signin.GoogleSignIn;
+import com.google.android.gms.auth.api.signin.GoogleSignInClient;
+import com.google.android.gms.auth.api.signin.GoogleSignInOptions;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -30,13 +34,18 @@ public class FormLogin extends AppCompatActivity {
     EditText password;
     Button loginButton;
 
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_form_login);
+        getWindow().setSoftInputMode(
+                WindowManager.LayoutParams.SOFT_INPUT_IS_FORWARD_NAVIGATION);
         username = findViewById(R.id.username);
         password = findViewById(R.id.password);
         loginButton = findViewById(R.id.loginButton);
+
+
 
         RetrofitService retrofitService = new RetrofitService();
         UserApi userApi = retrofitService.getRetrofit().create(UserApi.class);
@@ -48,7 +57,7 @@ public class FormLogin extends AppCompatActivity {
 
                 RequestQueue queue = Volley.newRequestQueue(FormLogin.this);
 
-                String url = "http://192.168.1.7:9000/user/login";
+                String url = "http://10.17.37.245:9000/user/login";
 
                 HashMap<String,String> params = new HashMap<String, String>();
                 params.put("username",name);

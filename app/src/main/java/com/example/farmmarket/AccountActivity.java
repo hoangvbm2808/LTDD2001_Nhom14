@@ -23,6 +23,8 @@ public class AccountActivity extends AppCompatActivity {
 
         String first_name = getIntent().getStringExtra("first_name");
         String last_name = getIntent().getStringExtra("last_name");
+        Integer user_id = getIntent().getIntExtra("user_id", 0);
+
 
         name.setText(first_name+" "+last_name);
 
@@ -32,7 +34,8 @@ public class AccountActivity extends AppCompatActivity {
                 Intent goToAccountActivity = new Intent(AccountActivity.this, MainActivity.class);
                 goToAccountActivity.putExtra("first_name", first_name);
                 goToAccountActivity.putExtra("last_name", last_name);
-
+                goToAccountActivity.putExtra("user_id", user_id);
+                finish();
                 startActivity(goToAccountActivity);
             }
         });

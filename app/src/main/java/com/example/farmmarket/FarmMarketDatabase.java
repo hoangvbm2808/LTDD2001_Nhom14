@@ -1082,6 +1082,29 @@ public class FarmMarketDatabase extends SQLiteOpenHelper {
 
     }
 
+    public ArrayList<Product> getProductById(int productId) {
+
+        ArrayList<Product> products = new ArrayList<>();
+        String SQL = "SELECT * FROM Product WHERE _id = " + productId;
+        SQLiteDatabase  query = getReadableDatabase();
+
+        Cursor cursor = query.rawQuery(SQL,null);
+            while (cursor.moveToNext()) {
+                int id = cursor.getInt(0);
+                String name = cursor.getString(1);
+                String description = cursor.getString(2);
+                Float price = cursor.getFloat(3);
+                String img = cursor.getString(4);
+                String create_date = cursor.getString(5);
+                int current_inventory = cursor.getInt(6);
+                int cate_id = cursor.getInt(7);
+                Product product = new Product(id,name, img,price,description,create_date,current_inventory,cate_id);
+
+                products.add(product);
+            }
+        return products;
+    }
+
     public Float getPriceProductById(Integer id) {
 
         String SQL = "SELECT * FROM Product WHERE _id = " + id;
