@@ -278,12 +278,26 @@ public class MainActivity extends AppCompatActivity{
 
     ActivityResultLauncher<ScanOptions> launcher = registerForActivityResult(new ScanContract(), result -> {
         if (result.getContents() != null) {
-            qrCode = Integer.parseInt(result.getContents());
-            FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
-            ArrayList<Product> arrproduct = db.getProductById(qrCode);
-            Intent goToListProduct = new Intent(getApplicationContext(), ProductActivity.class);
-            goToListProduct.putParcelableArrayListExtra("listProducts", arrproduct);
-            startActivity(goToListProduct);
+            try {
+                qrCode = Integer.parseInt(result.getContents());
+                FarmMarketDatabase db = new FarmMarketDatabase(MainActivity.this);
+                ArrayList<Product> arrproduct = db.getProductById(qrCode);
+                Intent goToListProduct = new Intent(getApplicationContext(), ProductActivity.class);
+                goToListProduct.putParcelableArrayListExtra("listProducts", arrproduct);
+                startActivity(goToListProduct);
+            } catch (Exception e) {
+                AlertDialog.Builder builder = new AlertDialog.Builder(MainActivity.this);
+                builder.setTitle("Sản phẩm không tồn tại");
+                builder.setMessage("Quay lại !!!");
+                builder.setPositiveButton("OK", new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface dialog, int which) {
+                        dialog.dismiss();
+                    }
+                }).show();
+            }
+
+
         }
     });
 
