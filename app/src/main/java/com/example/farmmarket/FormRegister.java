@@ -93,7 +93,7 @@ public class FormRegister extends AppCompatActivity implements View.OnClickListe
                         Toast.makeText(FormRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                         RequestQueue queue = Volley.newRequestQueue(FormRegister.this);
 
-                        String url = "http://10.17.37.245:9000/user/save";
+                        String url = "http://172.16.16.21:9000/user/save";
 
                         HashMap<String,String> params = new HashMap<String, String>();
                         params.put("first_name", fName);
