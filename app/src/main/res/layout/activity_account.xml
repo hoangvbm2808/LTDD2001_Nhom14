@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Chưa thanh toán"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Chờ vận chuyển"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Đã vận chuyển"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -205,6 +205,7 @@
             android:src="@drawable/mode">
         </ImageView>
         <TextView
+            android:padding="5dp"
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -239,6 +240,7 @@
             android:src="@drawable/evaluate">
         </ImageView>
         <TextView
+            android:padding="5dp"
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -249,6 +251,7 @@
         </TextView>
         <androidx.appcompat.widget.AppCompatButton
             android:id="@+id/btnRate"
+            android:layout_marginTop="-5dp"
             android:layout_width="80dp"
             android:layout_height="30dp"
             android:background="@drawable/custom_button">
@@ -271,6 +274,7 @@
             android:src="@drawable/comment">
         </ImageView>
         <TextView
+            android:padding="5dp"
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -280,6 +284,7 @@
             android:layout_marginLeft="10dp">
         </TextView>
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
             android:id="@+id/btnMess"
             android:layout_width="80dp"
             android:layout_height="30dp"
@@ -303,6 +308,7 @@
             android:src="@drawable/call">
         </ImageView>
         <TextView
+            android:padding="5dp"
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
@@ -312,6 +318,7 @@
             android:layout_marginLeft="10dp">
         </TextView>
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
             android:id="@+id/btnCall"
             android:layout_width="80dp"
             android:layout_height="30dp"
@@ -336,16 +343,17 @@
             android:src="@drawable/policy">
         </ImageView>
         <TextView
+            android:padding="5dp"
             android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Chính sách và điều khoản"
+            android:text="Chính sách bán hàng"
             android:fontFamily="@font/be_vietnam_light"
-
             android:textSize="20sp"
             android:layout_marginLeft="10dp">
         </TextView>
         <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
             android:id="@+id/btnPolicy"
             android:layout_width="80dp"
             android:layout_height="30dp"

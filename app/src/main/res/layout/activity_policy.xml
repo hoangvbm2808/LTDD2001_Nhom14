@@ -2,28 +2,53 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     android:orientation="vertical">
+
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="horizontal"
-        android:background="@drawable/background_top"
-        >
+        android:background="#ed1c24"
+        android:orientation="horizontal">
 
-        <TextView
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#ed1c24"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dip"
+            android:minHeight="0dip"
+            android:pointerIcon="zoom_in"
+            android:textColorLink="#ffffff"
+            app:icon="@drawable/baseline_arrow_back_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="30sp" />
+
+        <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="CHÍNH SÁCH VÀ ĐIỀU KHOẢN"
-            android:textStyle="bold"
-            android:textSize="20sp"
-            android:paddingTop="15dp"
-            android:paddingBottom="15dp"
-            android:textAlignment="center"
+            android:layout_height="match_parent"
             android:gravity="center"
-            android:textColor="@color/white"
-            >
-        </TextView>
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#ed1c24"
+                android:fontFamily="@font/quicksand"
+                android:text="CHÍNH SÁCH VÀ ĐIỀU KHOẢN"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationX="-10dp" />
+        </LinearLayout>
+
     </LinearLayout>
+
     <ImageView
         android:layout_margin="20dp"
         android:layout_width="match_parent"
@@ -40,6 +65,8 @@
             android:layout_height="wrap_content"
             android:orientation="vertical">
             <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -47,6 +74,7 @@
                 android:text="1. Các hình thức thanh toán:\n a. Đối với khách hàng cá nhân:">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -57,6 +85,8 @@
     ♦️LOTTE Mart có toàn quyền đơn phương từ chối thanh toán (trừ tiền mặt) đơn hàng vì bất kỳ lý do gì liên quan đến lỗi hệ thống/ kỹ thuật, tách hóa đơn, lỗi thanh toán (không thành công/ thanh toán chờ/ từ chối thanh toán) hoặc nghi ngờ độ tuổi và hình thức mua đi bán lại vào bất kỳ thời điểm nào.">
             </TextView>
             <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -64,19 +94,22 @@
                 android:text="b. Đối với khách hàng doanh nghiệp B2B (Business to Business):">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:text="Khi khách hàng có nhu cầu mua số lượng lớn hoặc giá trị cao, mua đi bán lại, hoặc kinh doanh: nhà hàng, khách sạn, café, văn phòng, cửa hàng tạp hóa, khu công nghiệp… Bộ phận bán hàng doanh nghiệp sẽ tư vấn và hỗ trợ.">
             </TextView>
             <TextView
-                android:layout_width="match_parent"
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="2. Chính sách giao hàng: \n a. Phí giao hàng và khoảng cách giao hàng:">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -85,13 +118,15 @@
     ♦️Giao tối đa 15km và phí giao hàng từ km thứ 11 là 5,000 đồng/ km đối với LOTTE Mart Nam Sài Gòn, Tân Bình, Gò Vấp \n" >
             </TextView>
             <TextView
-                android:layout_width="match_parent"
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="b. Khối lượng và thời gian giao hàng:">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -100,6 +135,8 @@
     ♦️Các trường hợp bất khả kháng: Thiên tai, mưa bão, hỏa hoạn, cháy nổ, bệnh dịch, lượng đơn hàng tăng cao, lỗi kỹ thuật hoặc phương tiện di chuyển gặp sự cố… hoặc do đặc thù của một số đơn hàng có sản phẩm có trọng lượng lớn cần vận chuyển bằng ô tô bị hạn chế tuyến đường/ giờ di chuyển theo quy định của pháp luật. \n" >
             </TextView>
             <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -107,6 +144,7 @@
                 android:text="3. Chính sách đổi hàng \n a. Quy trình và điều kiện xử lý đổi hàng:">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
@@ -117,13 +155,15 @@
     ♦️LOTTE Mart chỉ đồng ý hỗ trợ đổi sản phẩm tương tự (cùng mã hàng, cùng giá) trong trường hợp sản phẩm bị lỗi kỹ thuật, đổi kích cỡ/ kích thước \n">
             </TextView>
             <TextView
-                android:layout_width="match_parent"
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"
                 android:textStyle="bold"
                 android:text="c. Không giải quyết đổi hàng cho các trường hợp sau:">
             </TextView>
             <TextView
+                android:fontFamily="@font/be_vietnam_light"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:textSize="20sp"

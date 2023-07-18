@@ -45,6 +45,7 @@
 
             </RelativeLayout>
             <TextView
+                android:fontFamily="@font/quicksand"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="center"
@@ -61,9 +62,10 @@
                 android:layout_marginEnd="20dp"
                 android:gravity="center"
                 android:layout_gravity="center"
-                android:textSize="18sp"
+                android:textSize="20sp"
                 android:layout_marginTop="10dp"
-                android:text="If you are anjgafoasfas">
+                android:fontFamily="@font/be_vietnam_light"
+                android:text="Bạn hài lòng về ứng dụng này chứ. Hãy cho chúng tôi biết ý kiến của bạn">
             </TextView>
             <androidx.appcompat.widget.AppCompatRatingBar
                 android:id="@+id/ratingBar"
@@ -87,13 +89,14 @@
                 android:paddingTop="10dp"
                 android:paddingBottom="10dp">
                 <androidx.appcompat.widget.AppCompatButton
+                    android:fontFamily="@font/quicksand"
                     android:id="@+id/btnRatingNow"
                     android:layout_width="200dp"
                     android:layout_height="60dp"
                     android:layout_marginStart="20dp"
                     android:text="Hoàn thành"
                     android:textStyle="bold"
-                    android:textSize="23sp"
+                    android:textSize="25sp"
                     android:textColor="#FFFFFF"
                     android:background="@drawable/round_blue"
                     android:textAllCaps="false"
