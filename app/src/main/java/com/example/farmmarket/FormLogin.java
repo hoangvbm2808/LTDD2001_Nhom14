@@ -57,7 +57,7 @@ public class FormLogin extends AppCompatActivity {
 
                 RequestQueue queue = Volley.newRequestQueue(FormLogin.this);
 
-                String url = "http://10.17.37.245:9000/user/login";
+                String url = "http://192.168.1.7:9000/user/login";
 
                 HashMap<String,String> params = new HashMap<String, String>();
                 params.put("username",name);
