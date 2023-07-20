@@ -3,4 +3,7 @@
     <color name="colorPrimary">#ed1c24</color>
     <color name="black">#FF000000</color>
     <color name="white">#FFFFFFFF</color>
+    <color name="dialog_color_1" > #ed1c24</color>
+    <color name="dialog_color_2">#3B5796</color>
+    <color name="dialog_color_3">#EAEAEA</color>
 </resources>

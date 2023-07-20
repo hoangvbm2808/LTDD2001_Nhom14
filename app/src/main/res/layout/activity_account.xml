@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#DDDDDD	"
+    android:background="@color/dialog_color_3"
     android:orientation="vertical">
 
     <LinearLayout
@@ -137,7 +137,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Chưa thanh toán"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -160,7 +160,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Chờ vận chuyển"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -183,7 +183,7 @@
                     android:layout_height="wrap_content"
                     android:layout_weight="1"
                     android:fontFamily="@font/be_vietnam_light"
-                    android:text="Đơn chờ thanh tóan"
+                    android:text="Đã vận chuyển"
                     android:textAlignment="center"
                     android:textSize="18sp"></TextView>
             </LinearLayout>
@@ -193,144 +193,173 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_radius_white">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:src="@drawable/mode"></ImageView>
-
+            android:src="@drawable/mode">
+        </ImageView>
         <TextView
+            android:padding="5dp"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="2"
-            android:fontFamily="@font/be_vietnam_light"
             android:text="Chế độ tối"
-            android:textSize="20sp"></TextView>
-        <!--Nut switch-->
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/be_vietnam_light">
+    </TextView>
+    <!--Nut switch-->
         <Switch
-            android:layout_width="50dp"
-            android:layout_height="50dp"
             android:layout_weight="2"
-            android:gravity="center">
+            android:gravity="center"
+            android:layout_width="30dp"
+            android:layout_height="30dp">
 
         </Switch>
     </LinearLayout>
+
     <!-- Evaluate ĐÁNH GIÁ -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="10dp"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_radius_white">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:src="@drawable/evaluate"></ImageView>
-
+            android:src="@drawable/evaluate">
+        </ImageView>
         <TextView
+            android:padding="5dp"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="2"
-            android:fontFamily="@font/be_vietnam_light"
             android:text="Đánh giá của tôi"
-            android:textSize="20sp"></TextView>
+            android:fontFamily="@font/be_vietnam_light"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:id="@+id/btnRate"
+            android:layout_marginTop="-5dp"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_button">
+        </androidx.appcompat.widget.AppCompatButton>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/baseline_arrow_forward_ios_24"></ImageView>
     </LinearLayout>
     <!-- Gui tin nhan -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_radius_white">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:src="@drawable/comment"></ImageView>
-
+            android:src="@drawable/comment">
+        </ImageView>
         <TextView
+            android:padding="5dp"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="2"
+            android:text="Đóng góp ý kiến"
             android:fontFamily="@font/be_vietnam_light"
-            android:text="Gửi tin nhắn cho chúng tôi"
-            android:textSize="20sp"></TextView>
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
+            android:id="@+id/btnMess"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_button">
+        </androidx.appcompat.widget.AppCompatButton>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/baseline_arrow_forward_ios_24"></ImageView>
     </LinearLayout>
     <!--goi dien -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_radius_white">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:src="@drawable/call"></ImageView>
-
+            android:src="@drawable/call">
+        </ImageView>
         <TextView
+            android:padding="5dp"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="2"
-            android:fontFamily="@font/be_vietnam_light"
             android:text="Gọi tổng đài 1900 1880"
-            android:textSize="20sp"></TextView>
+            android:fontFamily="@font/be_vietnam_light"
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
+            android:id="@+id/btnCall"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_button">
+        </androidx.appcompat.widget.AppCompatButton>
 
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/baseline_arrow_forward_ios_24"></ImageView>
     </LinearLayout>
+
     <!--Chinh sach va dieu khoan -->
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@color/white"
         android:orientation="horizontal"
-        android:padding="10dp">
-
+        android:padding="10dp"
+        android:layout_marginTop="10dp"
+        android:layout_marginLeft="10dp"
+        android:layout_marginRight="10dp"
+        android:background="@drawable/custom_radius_white">
         <ImageView
             android:layout_width="30dp"
             android:layout_height="match_parent"
-            android:src="@drawable/policy"></ImageView>
-
+            android:src="@drawable/policy">
+        </ImageView>
         <TextView
+            android:padding="5dp"
+            android:layout_weight="2"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginLeft="10dp"
-            android:layout_weight="2"
+            android:text="Chính sách bán hàng"
             android:fontFamily="@font/be_vietnam_light"
-            android:text="Chính sách và điều khoản"
-            android:textSize="20sp"></TextView>
-
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="match_parent"
-            android:src="@drawable/baseline_arrow_forward_ios_24"></ImageView>
+            android:textSize="20sp"
+            android:layout_marginLeft="10dp">
+        </TextView>
+        <androidx.appcompat.widget.AppCompatButton
+            android:layout_marginTop="-5dp"
+            android:id="@+id/btnPolicy"
+            android:layout_width="80dp"
+            android:layout_height="30dp"
+            android:background="@drawable/custom_button">
+        </androidx.appcompat.widget.AppCompatButton>
     </LinearLayout>
-
-
 </LinearLayout>
 
 

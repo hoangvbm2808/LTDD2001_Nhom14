@@ -1,0 +1,184 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#ed1c24"
+        android:orientation="horizontal">
+
+        <Button
+            android:id="@+id/btnBack"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:backgroundTint="#ed1c24"
+            android:insetTop="0dp"
+            android:insetBottom="0dp"
+            android:minWidth="0dip"
+            android:minHeight="0dip"
+            android:pointerIcon="zoom_in"
+            android:textColorLink="#ffffff"
+            app:icon="@drawable/baseline_arrow_back_24"
+            app:iconGravity="textStart"
+            app:iconPadding="0dp"
+            app:iconSize="30sp" />
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/textView3"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_gravity="center"
+                android:background="#ed1c24"
+                android:fontFamily="@font/quicksand"
+                android:text="CHÍNH SÁCH VÀ ĐIỀU KHOẢN"
+                android:textColor="#ffffff"
+                android:textSize="24sp"
+                android:textStyle="bold"
+                android:translationX="-10dp" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <ImageView
+        android:layout_margin="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="100dp"
+        android:src="@drawable/logo">
+    </ImageView>
+    <ScrollView
+        android:layout_marginBottom="20dp"
+        android:padding="20dp"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="1. Các hình thức thanh toán:\n a. Đối với khách hàng cá nhân:">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="
+    ♦️LOTTE Mart hỗ trợ các hình thức thanh toán bao gồm: Tiền mặt, thẻ tín dụng, thẻ ghi nợ, thẻ quà tặng (LOTTE Mart, Got It) và ví điện tử (Momo, ZaloPay, Vnpay) khi mua sắm trực tiếp tại siêu thị và sẽ có các quầy chuyên biệt dành riêng cho một số hình thức thanh toán. \n
+    ♦️Nhân viên Thu ngân sẽ trực tiếp tư vấn trước khi thực hiện thanh toán và có quyền yêu cầu khách hàng xuất trình giấy tờ tùy thân khi có sản phẩm bia, rượu hoặc sử dụng điểm thành viên. \n
+    ♦️LOTTE Mart có toàn quyền đơn phương từ chối hoặc giới hạn số lượng khi khách hàng thanh toán bằng thẻ quà tặng (LOTTE Mart, Got It) và ví điện tử (Momo, ZaloPay, Vnpay) khi phát hiện hành vi trục lợi hoặc gây ảnh hưởng thanh toán của khách hàng khác; hoặc, một khách mua hàng với giá trị hóa đơn từ 10 triệu đồng/ sản phẩm/ giao dịch (bao gồm có sử dụng thẻ thành viên hay không). \n
+    ♦️LOTTE Mart có toàn quyền đơn phương từ chối thanh toán (trừ tiền mặt) đơn hàng vì bất kỳ lý do gì liên quan đến lỗi hệ thống/ kỹ thuật, tách hóa đơn, lỗi thanh toán (không thành công/ thanh toán chờ/ từ chối thanh toán) hoặc nghi ngờ độ tuổi và hình thức mua đi bán lại vào bất kỳ thời điểm nào.">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="b. Đối với khách hàng doanh nghiệp B2B (Business to Business):">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="Khi khách hàng có nhu cầu mua số lượng lớn hoặc giá trị cao, mua đi bán lại, hoặc kinh doanh: nhà hàng, khách sạn, café, văn phòng, cửa hàng tạp hóa, khu công nghiệp… Bộ phận bán hàng doanh nghiệp sẽ tư vấn và hỗ trợ.">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="2. Chính sách giao hàng: \n a. Phí giao hàng và khoảng cách giao hàng:">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text=" LOTTE Mart miễn phí giao hàng với đơn hàng tối thiểu 150,000 đồng với khoảng cách từ 10km đến 15km tính từ cửa hàng đã mua sắm đến địa chỉ nhận hàng (theo hướng dẫn đường đi ngắn nhất của ứng dụng bản đồ), trong đó: \n
+    ♦️Giao tối đa 10km đối với LOTTE Mart: Phú Thọ, Đồng Nai, Đà Nẵng, Bình Dương, Phan Thiết, Ba Đình, Vũng Tàu, Cần Thơ, Nha Trang, Cầu Giấy, Nha Trang Gold Coast, Vinh \n
+    ♦️Giao tối đa 15km và phí giao hàng từ km thứ 11 là 5,000 đồng/ km đối với LOTTE Mart Nam Sài Gòn, Tân Bình, Gò Vấp \n" >
+            </TextView>
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="b. Khối lượng và thời gian giao hàng:">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text=" Tùy thuộc vào kích thước và sản phẩm trong đơn hàng cũng như điều kiện vận hành của từng cửa hàng mà LOTTE Mart có thể nhận giao hàng tối đa 05 đơn/ khách/ ngày và tối đa 10 túi hoặc 10 thùng hàng/ khách/ ngày. \n Nhận giao hàng từ 8:00 đến 22:00 mỗi ngày, thời gian dự kiến giao hàng trong vòng 24 giờ kể từ thời gian nhận yêu cầu trực tiếp của Quý khách tại Khu vực giao hàng.
+    ♦️Quý khách không cung cấp chính xác, đầy đủ địa chỉ giao hàng, thiếu thông tin liên lạc hoặc liên hệ nhiều lần nhưng không thành công. \n
+    ♦️Các trường hợp bất khả kháng: Thiên tai, mưa bão, hỏa hoạn, cháy nổ, bệnh dịch, lượng đơn hàng tăng cao, lỗi kỹ thuật hoặc phương tiện di chuyển gặp sự cố… hoặc do đặc thù của một số đơn hàng có sản phẩm có trọng lượng lớn cần vận chuyển bằng ô tô bị hạn chế tuyến đường/ giờ di chuyển theo quy định của pháp luật. \n" >
+            </TextView>
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="3. Chính sách đổi hàng \n a. Quy trình và điều kiện xử lý đổi hàng:">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text=" LOTTE Mart chỉ hỗ trợ đổi hàng (cùng loại, cùng mã sản phẩm) trong trường hợp sản phẩm được xác định lỗi phát sinh từ LOTTE Mart. Quý khách vui lòng mang sản phẩm kèm hóa đơn thanh toán của LOTTE Mart tới trực tiếp quầy Dịch vụ Khách hàng tại cửa hàng đã mua sắm để yêu cầu đổi hàng \n
+    ♦️Sản phẩm đổi hàng phải còn nguyên vẹn, đầy đủ phụ kiện, chưa bị bóc bao bì, tem, nhãn mác \n
+    ♦️Sản phẩm điện tử, điện máy hoặc sản phẩm phẩm có chế độ bảo hành, việc đổi trả sẽ tuân theo quy định của từng nhãn hàng được thông tin cụ thể trong phiếu bảo hành sản phẩm \n
+    ♦️Các sản phẩm bán trong thời gian khuyến mãi có quà tặng kèm theo, khi đổi hàng, phải hoàn kèm theo sản phẩm được tặng.Trong trường hợp, sản phẩm tặng kèm đã qua sử dụng hoặc không còn nguyên trạng, Quý khách cần phải mua lại sản phẩm khác tại LOTTE Mart có giá trị tương đương hoặc cao hơn giá trị sản phẩm quà tặng \n
+    ♦️LOTTE Mart chỉ đồng ý hỗ trợ đổi sản phẩm tương tự (cùng mã hàng, cùng giá) trong trường hợp sản phẩm bị lỗi kỹ thuật, đổi kích cỡ/ kích thước \n">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/encode_sans"
+                android:textColor="@color/black"                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:textStyle="bold"
+                android:text="c. Không giải quyết đổi hàng cho các trường hợp sau:">
+            </TextView>
+            <TextView
+                android:fontFamily="@font/be_vietnam_light"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textSize="20sp"
+                android:text="
+    ♦️Quá thời gian được quy định \n
+    ♦️Sản phẩm không tuân thủ hướng dẫn sử dụng, bảo quản của nhà sản xuất, hết hạn sử dụng/ bảo hành. \n
+    ♦️Sản phẩm trong danh mục: rượu, đồ lót, đồ bơi, phụ kiện thời trang, sữa bột, mỹ phẩm, thực phẩm sơ chế hoặc nấu chín \n
+    ♦️Sản phẩm thanh lý, sản phẩm tặng kèm trong các chương trình khuyến mãi. \n
+    ♦️Đơn hàng thanh toán bằng điểm tích lũy trong thẻ thành viên. \n
+    ♦️Thanh toán bằng phương thức thẻ quà tặng (LOTTE Mart, Got It) và ví điện tử (Momo, ZaloPay, Vnpay, ShoppePay) hoặc có xuất hóa đơn VAT \n
+    ♦️Trường hợp không có sản phẩm (cùng loại, cùng mã) để đổi hàng, LOTTE Mart sẽ xử lý trả hàng và hoàn tiền. \n
+    ">
+            </TextView>
+
+
+        </LinearLayout>
+    </ScrollView>
+</LinearLayout>
