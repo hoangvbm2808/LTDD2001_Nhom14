@@ -71,44 +71,7 @@ public class MainActivity extends AppCompatActivity{
         first_name = getIntent().getStringExtra("first_name");
         last_name = getIntent().getStringExtra("last_name");
         user_id = getIntent().getIntExtra("user_id", 0);
-        Log.d("USER_ID_IN_MAIN", String.valueOf(user_id));
-//        Retrofit retrofitCreate = new RetrofitService().getRetrofit();
-//
-//        OrderApi orderApiCreate = retrofitCreate.create(OrderApi.class);
-//
-//        Call<List<Order>> call = orderApiCreate.getOrder(user_id);
-//        call.enqueue(new Callback<List<Order>>() {
-//            @Override
-//            public void onResponse(Call<List<Order>> call, Response<List<Order>> response) {
-//
-//                if (!response.isSuccessful()) {
-//                    Toast.makeText(getApplicationContext(), response.code() +"On response", Toast.LENGTH_SHORT).show();
-//                }
-//                else {
-//                    setListOrderEmpty("CREATE");
-//                    List<Order> createOrders = new ArrayList<>();
-//                    List<Order> listOrderResponse = response.body();
-//                    Log.d("Order_Create_BeforeFor", String.valueOf(getSize("Create")));
-//                    for (Order order: listOrderResponse){
-//                        int id = order.getId();
-//                        int user_id = order.getUser_id();
-//                        String create_day = order.getCreate_day();
-//                        double amount = order.getTotal_amount();
-//                        createOrders.add(new Order(id, user_id, create_day, amount));
-//                    }
-//                    setListOrder(createOrders, "CREATE");
-//
-//                    Log.d("Order_Create_AfterFor", String.valueOf(getSize("Create")));
-//                }
-//
-//
-//            }
-//            @Override
-//            public void onFailure(Call<List<Order>> call, Throwable t) {
-//                Toast.makeText(getApplicationContext(), t.getMessage()+"On Fail", Toast.LENGTH_SHORT).show();
-//                Log.d("Request fail", String.valueOf(getSize("Request fail")));
-//            }
-//        });
+
         setContentView(R.layout.activity_main);
 
         btnCart = findViewById(R.id.btnCart);

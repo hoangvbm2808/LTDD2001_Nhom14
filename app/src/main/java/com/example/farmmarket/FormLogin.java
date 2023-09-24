@@ -3,6 +3,7 @@ package com.example.farmmarket;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
 import android.view.View;
@@ -34,6 +35,9 @@ public class FormLogin extends AppCompatActivity {
     EditText password;
     Button loginButton;
 
+    //Create category in database (Run once in lifecycle)
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -57,7 +61,7 @@ public class FormLogin extends AppCompatActivity {
 
                 RequestQueue queue = Volley.newRequestQueue(FormLogin.this);
 
-                String url = "http://192.168.1.7:9000/user/login";
+                String url = "http://192.168.1.4:9000/user/login";
                 HashMap<String,String> params = new HashMap<String, String>();
                 params.put("username",name);
                 params.put("password",pass);
@@ -67,18 +71,18 @@ public class FormLogin extends AppCompatActivity {
                     @Override
                     public void onResponse(JSONObject response) {
                         try {
-                            String first_name = (String) response.get("first_name");
-                            String last_name = (String) response.get("last_name");
-                            int user_id = (Integer) response.get("id");
+                            String token = (String) response.get("token");
 
-                            Log.d("NAME", first_name);
-                            Log.d("NAME", last_name);
-                            Log.d("NAME", String.valueOf(user_id));
+                            Log.d("Token ========= ", token);
 
-                            Intent gotoMainActivity = new Intent(FormLogin.this, MainActivity.class);
-                            gotoMainActivity.putExtra("first_name", first_name);
-                            gotoMainActivity.putExtra("last_name", last_name);
-                            gotoMainActivity.putExtra("user_id", user_id);
+                            //Save token
+                            SharedPreferences preferences = getSharedPreferences("myPrefs", MODE_PRIVATE);
+                            preferences.edit().putString("token", token).commit();
+
+                            Intent gotoMainActivity = new Intent(FormLogin.this, LoginActivity.class);
+//                            gotoMainActivity.putExtra("first_name", first_name);
+//                            gotoMainActivity.putExtra("last_name", last_name);
+//                            gotoMainActivity.putExtra("user_id", user_id);
 
                             startActivity(gotoMainActivity);
                             finish();

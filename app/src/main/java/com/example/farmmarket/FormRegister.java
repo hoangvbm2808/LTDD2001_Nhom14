@@ -90,10 +90,9 @@ public class FormRegister extends AppCompatActivity implements View.OnClickListe
             if (isValid(email)) {
                 if (sdt.length() == 10 && sdt.startsWith("0")) {
                     if (password.length() > 5) {
-                        Toast.makeText(FormRegister.this, "Đăng ký thành công", Toast.LENGTH_SHORT).show();
                         RequestQueue queue = Volley.newRequestQueue(FormRegister.this);
 
-                        String url = "http://192.168.1.7:9000/user/save";
+                        String url = "http://192.168.1.4:9000/user/save";
 
                         HashMap<String,String> params = new HashMap<String, String>();
                         params.put("first_name", fName);

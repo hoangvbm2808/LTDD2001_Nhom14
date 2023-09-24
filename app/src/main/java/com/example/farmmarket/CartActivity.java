@@ -182,7 +182,7 @@ public class CartActivity extends AppCompatActivity {
             public void onClick(View v) {
                 RequestQueue queue = Volley.newRequestQueue(CartActivity.this);
 
-                String url = "http://10.17.37.245:9000/order/save";
+                String url = "http://192.168.1.4:9000/order/save";
 
                 HashMap<String,String> params = new HashMap<String, String>();
 
